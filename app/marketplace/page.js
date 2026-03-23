@@ -1,7 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
+import MarketplaceNav from '../components/MarketplaceNav';
 import ProviderCard from '../components/ProviderCard';
+import { VENDOR_CATEGORIES } from '../../lib/marketplace/config';
 import { loadMarketplaceProvidersWithSeed } from '../../lib/marketplace/loadProvidersClient';
 import { TCG_APP_SIGNUP_CLIENT_URL } from '../../lib/tcgAppUrls';
 
@@ -29,6 +31,7 @@ export default function MarketplaceBrowsePage() {
   return (
     <div style={{ background: '#0d0f14', color: '#e8eaf0', fontFamily: "'Outfit', sans-serif", minHeight: '100vh' }}>
       <Nav active="Marketplace" />
+      <MarketplaceNav />
 
       <section
         style={{
@@ -105,6 +108,31 @@ export default function MarketplaceBrowsePage() {
           >
             Daftarkan bisnis Anda →
           </a>
+        </div>
+      </section>
+
+      <section style={{ padding: '0 24px 40px', maxWidth: '1100px', margin: '0 auto' }}>
+        <h2 style={{ fontSize: '20px', fontWeight: '700', margin: '0 0 18px', color: '#e8eaf0' }}>Jelajahi kategori</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '14px' }}>
+          {VENDOR_CATEGORIES.map((c) => (
+            <a
+              key={c.id}
+              href={`/marketplace/category/${c.id}`}
+              style={{
+                display: 'block',
+                textDecoration: 'none',
+                padding: '20px 18px',
+                borderRadius: '14px',
+                background: '#1a1e28',
+                border: `1px solid ${c.color}33`,
+                transition: 'transform 0.2s, border-color 0.2s',
+              }}
+            >
+              <div style={{ fontSize: '28px', marginBottom: '8px' }}>{c.icon}</div>
+              <div style={{ fontSize: '15px', fontWeight: '700', color: '#e8eaf0', marginBottom: '6px' }}>{c.name}</div>
+              <div style={{ fontSize: '13px', color: '#7a8099', lineHeight: '1.45' }}>{c.description}</div>
+            </a>
+          ))}
         </div>
       </section>
 

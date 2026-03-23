@@ -70,7 +70,7 @@ export default function JakartaPage() {
           }}>
             Cari Gudang di Jakarta →
           </a>
-          <a href="https://app.techchainglobal.com/id/signup?role=client" style={{
+          <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" style={{
             textDecoration: 'none', padding: '14px 28px', borderRadius: '10px',
             background: 'transparent', border: '1px solid rgba(96,165,250,0.4)',
             color: '#60a5fa', fontWeight: '600', fontSize: '15px',

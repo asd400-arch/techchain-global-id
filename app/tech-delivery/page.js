@@ -8,6 +8,7 @@ import {
   TCG_APP_SIGNUP_URL,
   TCG_APP_CLIENT_JOBS_NEW_URL,
   TCG_APP_CORP_PREMIUM_URL,
+  TCG_EXPRESS_PWA_URL_ID,
 } from '../../lib/tcgAppUrls';
 
 export default function TechDelivery() {
@@ -56,7 +57,7 @@ export default function TechDelivery() {
   ];
 
   const androidSteps = [
-    'Buka express.techchainglobal.com di Chrome',
+    `Buka ${TCG_EXPRESS_PWA_URL_ID.replace('https://', '')} di Chrome`,
     'Ketuk menu ⋮ (tiga titik, pojok kanan atas)',
     'Pilih "Tambah ke layar utama" atau "Instal aplikasi"',
     'Ketuk "Instal" — ikon aplikasi muncul di layar utama',
@@ -64,7 +65,7 @@ export default function TechDelivery() {
   ];
 
   const iosSteps = [
-    'Buka express.techchainglobal.com di Safari',
+    `Buka ${TCG_EXPRESS_PWA_URL_ID.replace('https://', '')} di Safari`,
     'Ketuk tombol Bagikan (kotak dengan panah)',
     'Gulir ke bawah dan ketuk "Tambah ke Layar Utama"',
     'Ketuk "Tambah" — ikon aplikasi muncul di layar utama',

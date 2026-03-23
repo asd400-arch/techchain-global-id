@@ -71,7 +71,7 @@ export default function BatamPage() {
           }}>
             Cari Gudang di Batam →
           </a>
-          <a href="https://app.techchainglobal.com/id/signup?role=client" style={{
+          <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" style={{
             textDecoration: 'none', padding: '14px 28px', borderRadius: '10px',
             background: 'transparent', border: '1px solid rgba(62,207,142,0.4)',
             color: '#3ecf8e', fontWeight: '600', fontSize: '15px',
