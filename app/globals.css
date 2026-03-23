@@ -1,0 +1,27 @@
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden!important;width:100%!important;max-width:100%!important;position:relative}
+body{font-family:'Outfit',sans-serif;background:#0a1628}
+nav,section,footer,div,main,article,header,img{max-width:100%!important}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes slideInLeft{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideInRight{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.4}50%{transform:translate(-50%,-50%) scale(1.5);opacity:0}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.animate-fadeInUp{animation:fadeInUp .8s ease forwards}
+.animate-fadeIn{animation:fadeIn 1s ease forwards}
+.animate-slideLeft{animation:slideInLeft .8s ease forwards}
+.animate-slideRight{animation:slideInRight .8s ease forwards}
+.animate-float{animation:float 3s ease-in-out infinite}
+.delay-1{animation-delay:.1s;opacity:0}
+.delay-2{animation-delay:.2s;opacity:0}
+.delay-3{animation-delay:.3s;opacity:0}
+.delay-4{animation-delay:.4s;opacity:0}
+.delay-5{animation-delay:.5s;opacity:0}
+.delay-6{animation-delay:.6s;opacity:0}
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#0a1628}
+::-webkit-scrollbar-thumb{background:#1a56db;border-radius:4px}
+::selection{background:#00d4ff;color:#0a1628}
