@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { supabase } from '../../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
 
@@ -13,6 +13,9 @@ export default function Contact() {
     e.preventDefault();
     setStatus('sending');
     try {
+      if (!isSupabaseConfigured || !supabase) {
+        throw new Error('Supabase not configured');
+      }
       const { error } = await supabase.from('leads').insert([formData]);
       if (error) throw error;
       setStatus('success');

@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import InteractiveMap from '../components/InteractiveMap';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
@@ -32,6 +32,9 @@ export default function Home() {
     e.preventDefault();
     setStatus('sending');
     try {
+      if (!isSupabaseConfigured || !supabase) {
+        throw new Error('Supabase not configured');
+      }
       const { error } = await supabase.from('leads').insert([formData]);
       if (error) throw error;
       setStatus('success');

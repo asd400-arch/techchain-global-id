@@ -1,6 +1,6 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
-import { supabase } from '../../lib/supabase';
+import { supabase, isSupabaseConfigured } from '../../lib/supabase';
 
 const countries = [
   'Singapore', 'Malaysia', 'Indonesia', 'Thailand', 'Vietnam',
@@ -59,6 +59,9 @@ export default function QuoteModal({ isOpen, onClose }) {
   const handleSubmit = async () => {
     setStatus('sending');
     try {
+      if (!isSupabaseConfigured || !supabase) {
+        throw new Error('Supabase not configured');
+      }
       const quoteData = {
         ...form,
         wh_storageType: form.wh_storageType.join(', '),
