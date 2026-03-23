@@ -3,13 +3,15 @@ import { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
 import {
-  TCG_APP_LOGIN_URL,
   TCG_APP_SIGNUP_CLIENT_URL,
   TCG_APP_SIGNUP_URL,
   TCG_APP_CLIENT_JOBS_NEW_URL,
   TCG_APP_CORP_PREMIUM_URL,
   TCG_EXPRESS_PWA_URL_ID,
 } from '../../lib/tcgAppUrls';
+
+/** Masuk — fixed Indonesia login URL (no query string). */
+const TCG_MASUK_HREF = 'https://app.techchainglobal.com/id/login';
 
 export default function TechDelivery() {
   const [scrollY, setScrollY] = useState(0);
@@ -104,13 +106,13 @@ export default function TechDelivery() {
               textDecoration: 'none', fontWeight: '700', fontSize: '16px',
               boxShadow: '0 4px 20px rgba(0,212,170,0.35)',
             }}>🚀 Pesan Pengiriman</a>
-            <a href={TCG_APP_LOGIN_URL} target="_blank" rel="noopener noreferrer" style={{
+            <a href={TCG_MASUK_HREF} target="_blank" rel="noopener noreferrer" title="app.techchainglobal.com/id/login — Indonesia (+62)" style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               padding: '16px 32px', borderRadius: '12px',
               background: 'transparent', color: 'white',
               textDecoration: 'none', fontWeight: '700', fontSize: '16px',
               border: '2px solid rgba(255,255,255,0.2)',
-            }}>Masuk →</a>
+            }}>Masuk (Indonesia) →</a>
           </div>
         </div>
       </section>
