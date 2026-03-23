@@ -22,13 +22,13 @@ export default function About() {
   ];
 
   const timeline = [
-    { year: '2016', event: 'Didirikan di Singapura — Kantor Pusat', icon: '🇸🇬' },
+    { year: '2016', event: 'Didirikan di Indonesia — Kantor Pusat', icon: '🇮🇩' },
     { year: '2017', event: 'Ekspansi ke Indonesia — jaringan nasional dengan 16 lokasi', icon: '🇮🇩' },
     { year: '2018', event: 'Dukungan Semikonduktor & Telekomunikasi diluncurkan', icon: '⚙️' },
-    { year: '2020', event: 'Hub E-Commerce didirikan di Singapura', icon: '🛒' },
+    { year: '2020', event: 'Hub E-Commerce didirikan di Indonesia', icon: '🛒' },
     { year: '2021', event: 'Operasi layanan kesehatan & Pengiriman Vaksin diluncurkan', icon: '🏥' },
     { year: '2022', event: 'Ekspansi ke Malaysia & Thailand', icon: '🌏' },
-    { year: '2023', event: 'Dukungan Teknis Fab Singapura & kemampuan Otomasi', icon: '🤖' },
+    { year: '2023', event: 'Dukungan Teknis Fab Indonesia & kemampuan Otomasi', icon: '🤖' },
     { year: '2024', event: 'Ekspansi ke India — Delhi, Mumbai, Chennai', icon: '🇮🇳' },
     { year: '2025', event: 'Layanan Dukungan Pusat Data diluncurkan', icon: '🖥️' },
   ];
@@ -45,7 +45,7 @@ export default function About() {
           <h1 className="animate-fadeInUp delay-1" style={{ fontSize: m ? '32px' : '56px', fontWeight: '800', color: 'white', marginTop: '15px', letterSpacing: '-2px' }}>
             <span>Memimpin di Bidang</span><br /><span>Dukungan Teknologi</span>
           </h1>
-          <p className="animate-fadeInUp delay-2" style={{ fontSize: m ? '15px' : '19px', color: 'rgba(255,255,255,0.6)', maxWidth: '650px', margin: '20px auto 0', lineHeight: '1.7' }}>Sejak 2016, memberikan keunggulan layanan teknologi dari Singapura ke seluruh dunia.</p>
+          <p className="animate-fadeInUp delay-2" style={{ fontSize: m ? '15px' : '19px', color: 'rgba(255,255,255,0.6)', maxWidth: '650px', margin: '20px auto 0', lineHeight: '1.7' }}>Sejak 2016, memberikan keunggulan layanan teknologi dari Indonesia ke seluruh dunia.</p>
         </div>
       </section>
 

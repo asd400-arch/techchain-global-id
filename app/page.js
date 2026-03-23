@@ -4,7 +4,7 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import InteractiveMap from '../components/InteractiveMap';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
-import { TCG_APP_CLIENT_JOBS_NEW_URL } from '../lib/tcgAppUrls';
+import { TCG_APP_SIGNUP_CLIENT_URL, TCG_APP_LOGIN_URL } from '../lib/tcgAppUrls';
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
@@ -119,7 +119,7 @@ export default function Home() {
             fontSize: m ? '15px' : '20px', color: 'rgba(255,255,255,0.6)', maxWidth: '650px',
             margin: '0 auto 40px', lineHeight: '1.7',
           }}>
-            Layanan teknis menyeluruh untuk Pusat Data, Semikonduktor, Elektronik Konsumen, dan Layanan Kesehatan — dari Singapura ke seluruh dunia.
+            Layanan teknis menyeluruh untuk Pusat Data, Semikonduktor, Elektronik Konsumen, dan Layanan Kesehatan — dari Indonesia ke seluruh dunia.
           </p>
           <div className="animate-fadeInUp delay-3" style={{ display: 'flex', gap: '15px', justifyContent: 'center', flexDirection: m ? 'column' : 'row', alignItems: 'center' }}>
             <a href="/contact" style={{
@@ -180,28 +180,28 @@ export default function Home() {
               borderRadius: '100px', padding: '6px 16px', marginBottom: '16px',
             }}>
               <span style={{ width: '8px', height: '8px', background: '#00d4aa', borderRadius: '50%', animation: 'pulse 2s infinite' }}></span>
-              <span style={{ color: '#00d4aa', fontSize: '12px', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' }}>Layanan Baru Diluncurkan</span>
+              <span style={{ color: '#00d4aa', fontSize: '12px', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' }}>BETA LIVE — Indonesia</span>
             </div>
             <h3 style={{ fontSize: m ? '24px' : '32px', fontWeight: '800', color: 'white', lineHeight: '1.2', marginBottom: '12px' }}>
-              TCG Express <span style={{ color: '#00d4aa' }}>Sudah Hadir!</span>
+              TCG Express <span style={{ color: '#00d4aa' }}>is live</span>
             </h3>
             <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: m ? '14px' : '16px', lineHeight: '1.7', marginBottom: '24px' }}>
-              Platform pengiriman B2B pertama di Singapura untuk peralatan teknologi. Penawaran real-time, pelacakan GPS, 9 jenis kendaraan, dan pembayaran PayNow dengan biaya 0%.
+              Indonesia&apos;s first B2B delivery platform for technology equipment. Real-time quotes, GPS tracking, nine vehicle types, and integrated payments.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <a href="/tech-delivery" style={{
+              <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '13px 26px', borderRadius: '10px',
                 background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628',
                 textDecoration: 'none', fontWeight: '700', fontSize: '14px',
-              }}>Pelajari Lebih Lanjut</a>
-              <a href={TCG_APP_CLIENT_JOBS_NEW_URL} target="_blank" rel="noopener noreferrer" style={{
+              }}>Book a Delivery</a>
+              <a href={TCG_APP_LOGIN_URL} target="_blank" rel="noopener noreferrer" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '13px 26px', borderRadius: '10px',
                 background: 'transparent', color: '#00d4aa',
                 textDecoration: 'none', fontWeight: '700', fontSize: '14px',
                 border: '1px solid rgba(0,212,170,0.3)',
-              }}>Pesan Pengiriman</a>
+              }}>Sign In</a>
             </div>
           </div>
           <div style={{
@@ -272,10 +272,10 @@ export default function Home() {
               9 Negara.<br />30+ Lokasi.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', lineHeight: '1.8', marginTop: '20px', marginBottom: '30px' }}>
-              Berkantor pusat di Singapura dengan jaringan komprehensif di Asia-Pasifik, memberikan dukungan teknis lokal dengan standar global.
+              Berkantor pusat di Indonesia dengan jaringan komprehensif di Asia-Pasifik, memberikan dukungan teknis lokal dengan standar global.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
-              {['🇸🇬 Singapore (HQ)', '🇮🇩 Indonesia (16 loc)', '🇲🇾 Malaysia', '🇹🇭 Thailand', '🇻🇳 Vietnam', '🇰🇷 South Korea', '🇮🇳 India', '🇯🇵 Japan', '🇹🇼 Taiwan', '🇵🇭 Philippines'].map((c, i) => (
+              {['🇮🇩 Indonesia (HQ · 16 lokasi)', '🇲🇾 Malaysia', '🇹🇭 Thailand', '🇻🇳 Vietnam', '🇰🇷 South Korea', '🇮🇳 India', '🇯🇵 Japan', '🇹🇼 Taiwan', '🇵🇭 Philippines'].map((c, i) => (
                 <div key={i} style={{ padding: '10px 14px', borderRadius: '8px', background: 'rgba(0,212,255,0.05)', border: '1px solid rgba(0,212,255,0.1)', color: 'rgba(255,255,255,0.7)', fontSize: '14px', fontWeight: '500' }}>{c}</div>
               ))}
             </div>
@@ -346,7 +346,7 @@ export default function Home() {
             </p>
             <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {[
-                { icon: '📍', label: '21 Tan Quee Lan Street, #02-04 Heritage Place, Singapore 188108' },
+                { icon: '📍', label: '21 Tan Quee Lan Street, #02-04 Heritage Place, Indonesia 188108' },
                 { icon: '📧', label: 'admin@techchainglobal.com', href: 'mailto:admin@techchainglobal.com' },
                 { icon: '📞', label: '+65 8976 3771', href: 'tel:+6589763771' },
                 { icon: null, label: 'WhatsApp', href: 'https://wa.me/6589763771', isWhatsApp: true },
@@ -431,9 +431,9 @@ export default function Home() {
             </p>
           </div>
           {[
-            { title: 'Layanan', links: [{ name: 'Layanan Teknis', href: '/id/services' }, { name: 'Pengiriman Teknologi', href: '/id/tech-delivery' }, { name: 'Pergudangan', href: '/id/services' }, { name: 'Akhir Produk', href: '/id/services' }] },
-            { title: 'Perusahaan', links: [{ name: 'Tentang Kami', href: '/id/about' }, { name: 'ESG', href: '/id/esg' }, { name: 'Blog', href: '/id/blog' }, { name: 'Kontak', href: '/id/contact' }] },
-            { title: 'Industri', links: [{ name: 'Pusat Data', href: '/id/services' }, { name: 'Semikonduktor', href: '/id/services' }, { name: 'Telekomunikasi', href: '/id/services' }, { name: 'Layanan Kesehatan', href: '/id/services' }] },
+            { title: 'Layanan', links: [{ name: 'Layanan Teknis', href: '/services' }, { name: 'Pengiriman Teknologi', href: '/tech-delivery' }, { name: 'Pergudangan', href: '/services' }, { name: 'Akhir Produk', href: '/services' }] },
+            { title: 'Perusahaan', links: [{ name: 'Tentang Kami', href: '/about' }, { name: 'ESG', href: '/esg' }, { name: 'Blog', href: '/blog' }, { name: 'Kontak', href: '/contact' }] },
+            { title: 'Industri', links: [{ name: 'Pusat Data', href: '/services' }, { name: 'Semikonduktor', href: '/services' }, { name: 'Telekomunikasi', href: '/services' }, { name: 'Layanan Kesehatan', href: '/services' }] },
           ].map((col, i) => (
             <div key={i} style={{ textAlign: m ? 'center' : 'left' }}>
               <h4 style={{ color: 'white', fontSize: '15px', fontWeight: '700', marginBottom: '15px' }}>{col.title}</h4>
@@ -451,7 +451,7 @@ export default function Home() {
           display: 'flex', justifyContent: 'space-between', flexDirection: m ? 'column' : 'row', alignItems: 'center', gap: '10px',
         }}>
           <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>© 2026 Tech Chain Global. Seluruh hak cipta dilindungi.</span>
-          <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>Singapura 🇸🇬</span>
+          <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>Indonesia 🇮🇩</span>
         </div>
       </footer>
     </div>

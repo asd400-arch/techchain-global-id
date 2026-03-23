@@ -25,8 +25,8 @@ const locations = [
   { name: 'Penang', top: 38, left: 42 },
   { name: 'Kuala Lumpur', top: 41, left: 43 },
   { name: 'Johor Bahru', top: 43, left: 44 },
-  // Singapore HQ
-  { name: 'Singapore (HQ)', top: 44, left: 44.5, isHQ: true },
+  // Indonesia HQ (label)
+  { name: 'Indonesia (HQ)', top: 50, left: 52, isHQ: true },
   // Indonesia
   { name: 'Medan', top: 40, left: 40 },
   { name: 'Pekanbaru', top: 43, left: 42 },

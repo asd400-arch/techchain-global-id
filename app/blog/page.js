@@ -28,12 +28,12 @@ export default function Blog() {
       ]
     },
     {
-      id: 2, title: 'Boom Pusat Data APAC: Singapura, Malaysia, Indonesia & India Memimpin',
+      id: 2, title: 'Boom Pusat Data APAC: Indonesia, Malaysia & India Memimpin',
       date: '3 Feb 2025', category: 'Wawasan Pasar', readTime: '6 menit baca',
       excerpt: 'Asia-Pasifik adalah pasar pusat data yang tumbuh paling cepat di dunia. Empat pasar menonjol sebagai mesin utama ekspansi ini.',
       img: '/Express_delivery.webp', color: '#9333ea',
       content: [
-        { heading: 'Singapura: Hub yang Mapan', text: 'Singapura tetap menjadi hub pusat data utama Asia Tenggara. Pencabutan moratorium pusat data oleh pemerintah baru-baru ini membuka pintu bagi gelombang pembangunan baru.' },
+        { heading: 'Indonesia: Hub yang Mapan', text: 'Indonesia tetap menjadi hub pusat data utama Asia Tenggara. Pencabutan moratorium pusat data oleh pemerintah baru-baru ini membuka pintu bagi gelombang pembangunan baru.' },
         { heading: 'Malaysia: Bintang yang Sedang Naik', text: 'Malaysia telah muncul sebagai destinasi utama untuk pusat data hyperscale, khususnya di Johor Bahru dan Kuala Lumpur.' },
         { heading: 'Indonesia: Raksasa yang Belum Dimanfaatkan', text: 'Dengan populasi terbesar keempat di dunia dan ekonomi yang berkembang pesat secara digital, Indonesia mewakili potensi yang sangat besar.' },
         { heading: 'India: Mesin Pertumbuhan', text: 'Pasar pusat data India diproyeksikan tumbuh 3x lipat pada 2028, dengan Mumbai, Chennai, dan Delhi NCR sebagai klaster utama.' },
@@ -54,15 +54,15 @@ export default function Blog() {
       ]
     },
     {
-      id: 4, title: 'Revolusi Pusat Data Hijau Singapura: Yang Perlu Diketahui Operator',
+      id: 4, title: 'Revolusi Pusat Data Hijau Indonesia: Yang Perlu Diketahui Operator',
       date: '20 Jan 2025', category: 'Fokus Regional', readTime: '4 menit baca',
-      excerpt: 'Setelah menerapkan moratorium konstruksi pusat data baru pada 2019, Singapura telah membuka kembali pengembangan — namun dengan persyaratan hijau yang ketat.',
+      excerpt: 'Setelah menerapkan moratorium konstruksi pusat data baru pada 2019, Indonesia telah membuka kembali pengembangan — namun dengan persyaratan hijau yang ketat.',
       img: '/Sustainability.webp', color: '#16a34a',
       content: [
-        { heading: 'Aturan Baru', text: 'Pusat data baru di Singapura harus memenuhi kriteria keberlanjutan yang ditingkatkan: PUE 1,3 atau lebih rendah, penggunaan sumber energi terbarukan, dan komitmen terhadap target netralitas karbon.' },
+        { heading: 'Aturan Baru', text: 'Pusat data baru di Indonesia harus memenuhi kriteria keberlanjutan yang ditingkatkan: PUE 1,3 atau lebih rendah, penggunaan sumber energi terbarukan, dan komitmen terhadap target netralitas karbon.' },
         { heading: 'Apa Artinya Bagi Operasi', text: 'Persyaratan ini secara fundamental mengubah cara pengoperasian pusat data. Inovasi pendinginan melalui liquid cooling dan sistem HVAC yang dioptimalkan AI menjadi standar.' },
-        { heading: 'Tantangan Tenaga Kerja', text: 'Tenaga kerja pusat data Singapura berada di bawah tekanan. Seiring fasilitas menjadi semakin canggih secara teknologi, keterampilan yang dibutuhkan staf teknis terus berkembang.' },
-        { heading: 'Peluang bagi Kawasan', text: 'Standar hijau Singapura mempengaruhi pasar APAC yang lebih luas, menciptakan ekosistem regional di mana keunggulan operasional dan tanggung jawab lingkungan berjalan beriringan.' },
+        { heading: 'Tantangan Tenaga Kerja', text: 'Tenaga kerja pusat data Indonesia berada di bawah tekanan. Seiring fasilitas menjadi semakin canggih secara teknologi, keterampilan yang dibutuhkan staf teknis terus berkembang.' },
+        { heading: 'Peluang bagi Kawasan', text: 'Standar hijau Indonesia mempengaruhi pasar APAC yang lebih luas, menciptakan ekosistem regional di mana keunggulan operasional dan tanggung jawab lingkungan berjalan beriringan.' },
       ]
     },
   ];

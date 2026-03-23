@@ -55,7 +55,7 @@ export default function Contact() {
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
               {[
-                { icon: '📍', title: 'Kantor', text: '21 Tan Quee Lan Street, #02-04\nHeritage Place, Singapore 188108' },
+                { icon: '📍', title: 'Kantor', text: '21 Tan Quee Lan Street, #02-04\nHeritage Place, Indonesia 188108' },
                 { icon: '📧', title: 'Email', text: 'admin@techchainglobal.com', href: 'mailto:admin@techchainglobal.com' },
                 { icon: '📞', title: 'Telepon', text: '+65 8976 3771', href: 'tel:+6589763771' },
                 { icon: null, title: 'WhatsApp', text: 'Chat dengan kami', href: 'https://wa.me/6589763771', isWhatsApp: true },

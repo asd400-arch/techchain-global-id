@@ -28,7 +28,7 @@ export default function BatamPage() {
     { icon: '🌐', title: 'Kawasan Bebas', desc: 'Bebas bea masuk & PPN dalam FTZ' },
     { icon: '🚢', title: 'Ferry SG–Batam', desc: '45 menit dari Harbourfront/Tanah Merah' },
     { icon: '🏭', title: 'Kawasan Industri', desc: 'Batamindo, Kabil, Nongsa tersedia' },
-    { icon: '💰', title: 'Hemat Biaya', desc: '60–70% lebih hemat vs Singapura' },
+    { icon: '💰', title: 'Hemat Biaya', desc: '60–70% lebih hemat vs biaya pusat regional utama' },
   ];
 
   const corridorRows = [
@@ -60,7 +60,7 @@ export default function BatamPage() {
           Gudang & Logistik di Batam FTZ
         </h1>
         <p style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: '#7a8099', maxWidth: '560px', margin: '0 auto 40px', lineHeight: '1.7' }}>
-          45 menit dari Singapura. Bebas bea masuk. Biaya operasional 60–70% lebih hemat.
+          45 menit dengan ferry menuju Batam — akses regional. Bebas bea masuk. Biaya operasional 60–70% lebih hemat.
         </p>
 
         <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>

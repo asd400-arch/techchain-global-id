@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
+import { TCG_APP_SIGNUP_CLIENT_URL } from '../../lib/tcgAppUrls';
 
 export default function Services() {
   const [scrollY, setScrollY] = useState(0);
@@ -14,7 +15,7 @@ export default function Services() {
 
   const services = [
     { icon: '🔧', title: 'Layanan Teknis', desc: 'Dukungan teknis komprehensif untuk industri berteknologi tinggi termasuk layanan di lokasi dan jarak jauh. Kami menyediakan keahlian teknik khusus di berbagai sektor.', img: '/Technical_Service_Center.webp', features: ['Operasi Pusat Data', 'Otomasi Semikonduktor', 'Produksi Teknologi', 'Perbaikan Elektronik Konsumen', 'Logistik Balik'] },
-    { icon: '🚚', title: 'Pengiriman Teknologi', desc: 'Layanan pengiriman khusus yang dirancang untuk peralatan teknologi sensitif, besar, dan bernilai tinggi dengan protokol penanganan terjamin.', img: '/Express_delivery.webp', features: ['Peralatan Besar & Berat', 'Pengiriman White Glove', 'Pengiriman Ekspres (2/4 Jam)', 'Manajemen Pengembalian'], link: '/id/tech-delivery' },
+    { icon: '🚚', title: 'Pengiriman Teknologi', desc: 'Layanan pengiriman khusus yang dirancang untuk peralatan teknologi sensitif, besar, dan bernilai tinggi dengan protokol penanganan terjamin.', img: '/Express_delivery.webp', features: ['Peralatan Besar & Berat', 'Pengiriman White Glove', 'Pengiriman Ekspres (2/4 Jam)', 'Manajemen Pengembalian'], link: TCG_APP_SIGNUP_CLIENT_URL },
     { icon: '📦', title: 'Operasi Gudang', desc: 'Manajemen gudang canggih dengan area khusus untuk inventaris teknologi bernilai tinggi dan persyaratan penanganan khusus.', img: '/warehouse_operation.webp', features: ['Manajemen Suku Cadang', 'Inbound/Outbound', 'Manajemen Inventaris', 'Kegiatan Nilai Tambah', 'Penyimpanan Teknologi Bernilai Tinggi'] },
     { icon: '♻️', title: 'Manajemen Akhir Produk', desc: 'Manajemen akhir masa pakai yang bertanggung jawab dan berkelanjutan untuk semua produk teknologi, memastikan kepatuhan terhadap regulasi lingkungan.', img: '/end_of_life.webp', features: ['Pemrosesan Scrap', 'Program Daur Ulang', 'Layanan Refurbishment', 'Kepatuhan Lingkungan'] },
   ];
@@ -56,7 +57,7 @@ export default function Services() {
                   ))}
                 </div>
                 {service.link && (
-                  <a href={service.link} style={{ display: 'inline-block', marginTop: '20px', padding: '12px 24px', borderRadius: '10px', background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628', textDecoration: 'none', fontWeight: '700', fontSize: '14px' }}>Pelajari Lebih Lanjut dan Pesan</a>
+                  <a href={service.link} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', marginTop: '20px', padding: '12px 24px', borderRadius: '10px', background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628', textDecoration: 'none', fontWeight: '700', fontSize: '14px' }}>Pelajari Lebih Lanjut dan Pesan</a>
                 )}
               </div>
             </div>
