@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react';
 
 export default function LocaleLink({ sgHref, idHref, children, style, target, rel }) {
-  const [href, setHref] = useState(sgHref);
+  const [href, setHref] = useState(idHref);
 
   useEffect(() => {
-    const locale = document.cookie.match(/locale=([^;]+)/)?.[1] || 'sg';
+    const locale = document.cookie.match(/locale=([^;]+)/)?.[1] || 'id';
     setHref(locale === 'id' ? idHref : sgHref);
   }, [sgHref, idHref]);
 

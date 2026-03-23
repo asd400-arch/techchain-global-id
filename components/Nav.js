@@ -71,8 +71,15 @@ export default function Nav() {
 
   const isActive = (link) => pathname === link.href;
 
-  const LangSwitcher = ({ style }) => (
-    <a href="https://techchainglobal.com" style={{ fontSize: '13px', color: '#94a3b8', textDecoration: 'none' }}>🌐 EN</a>
+  const isEnSection = pathname === '/en' || pathname.startsWith('/en/');
+
+  const LangSwitcher = () => (
+    <a
+      href={isEnSection ? '/' : '/en'}
+      style={{ fontSize: '13px', color: '#94a3b8', textDecoration: 'none', whiteSpace: 'nowrap' }}
+    >
+      {isEnSection ? '🇮🇩 ID' : '🌐 EN'}
+    </a>
   );
 
   return (

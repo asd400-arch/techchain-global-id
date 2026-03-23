@@ -1,10 +1,16 @@
 import './globals.css';
 import FloatingQuoteButton from '../components/FloatingQuoteButton';
+import { PUBLIC_SITE_URL } from '../lib/siteUrl';
+
+const SITE = PUBLIC_SITE_URL;
 
 export const metadata = {
+  metadataBase: new URL(SITE),
   title: 'Tech Chain Global | Technology Service Excellence',
-  description: 'End-to-end technical services for Data Centers, Semiconductors, Consumer Electronics, and Healthcare across Asia-Pacific. 9 countries, 30+ locations since 2016.',
-  keywords: 'tech chain global, data center operations, semiconductor automation, technical services, warehouse operations, IT asset management, Indonesia, Asia Pacific, APAC',
+  description:
+    'End-to-end technical services for Data Centers, Semiconductors, Consumer Electronics, and Healthcare across Asia-Pacific. 9 countries, 30+ locations since 2016.',
+  keywords:
+    'tech chain global, data center operations, semiconductor automation, technical services, warehouse operations, IT asset management, Indonesia, Asia Pacific, APAC',
   authors: [{ name: 'Tech Chain Global' }],
   creator: 'Tech Chain Global',
   publisher: 'Tech Chain Global',
@@ -22,32 +28,32 @@ export const metadata = {
     other: { 'msvalidate.01': '27C8B2133CA2A466F1D3F5D7BD5C58E1' },
   },
   alternates: {
-    canonical: 'https://www.techchainglobal.com',
+    canonical: '/',
     languages: {
-      'en': 'https://www.techchainglobal.com',
-      'id': 'https://www.techchainglobal.com/id',
+      en: `${SITE}/en`,
+      id: SITE,
     },
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    url: 'https://www.techchainglobal.com',
+    locale: 'id_ID',
+    url: SITE,
     siteName: 'Tech Chain Global',
     title: 'Tech Chain Global | Technology Service Excellence',
     description: 'End-to-end technical services across 9 APAC countries.',
-    images: [{ url: 'https://www.techchainglobal.com/og-image.jpg', width: 1200, height: 630, alt: 'Tech Chain Global' }],
+    images: [{ url: `${SITE}/og-image.jpg`, width: 1200, height: 630, alt: 'Tech Chain Global' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tech Chain Global | Technology Service Excellence',
     description: 'End-to-end technical services across 9 APAC countries.',
-    images: ['https://www.techchainglobal.com/og-image.jpg'],
+    images: [`${SITE}/og-image.jpg`],
   },
   other: {
-    'geo.region': 'SG',
+    'geo.region': 'ID',
     'geo.placename': 'Indonesia',
-    'geo.position': '1.3006;103.8393',
-    'ICBM': '1.3006, 103.8393',
+    'geo.position': '-6.2088;106.8456',
+    'ICBM': '-6.2088, 106.8456',
   },
 };
 
@@ -62,18 +68,19 @@ const jsonLd = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://www.techchainglobal.com/#organization',
+      '@id': `${SITE}/#organization`,
       name: 'Tech Chain Global',
-      url: 'https://www.techchainglobal.com',
-      logo: 'https://www.techchainglobal.com/logo-512-dark.png',
-      description: 'Technology services company providing comprehensive support across semiconductors, data centers, telecommunications, and healthcare in Asia-Pacific.',
+      url: SITE,
+      logo: `${SITE}/logo-512-dark.png`,
+      description:
+        'Technology services company providing comprehensive support across semiconductors, data centers, telecommunications, and healthcare in Asia-Pacific.',
       foundingDate: '2016',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '176 Orchard Road, The Centrepoint, #05-05A',
         addressLocality: 'Indonesia',
         postalCode: '238843',
-        addressCountry: 'SG',
+        addressCountry: 'ID',
       },
       contactPoint: {
         '@type': 'ContactPoint',
@@ -97,27 +104,30 @@ const jsonLd = {
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.techchainglobal.com/#website',
-      url: 'https://www.techchainglobal.com',
+      '@id': `${SITE}/#website`,
+      url: SITE,
       name: 'Tech Chain Global',
-      publisher: { '@id': 'https://www.techchainglobal.com/#organization' },
+      publisher: { '@id': `${SITE}/#organization` },
     },
   ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" style={{ overflowX: 'hidden', width: '100%' }}>
+    <html lang="id" style={{ overflowX: 'hidden', width: '100%' }}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
-      <body suppressHydrationWarning style={{ margin: 0, padding: 0, overflowX: 'hidden', width: '100%', maxWidth: '100vw', position: 'relative' }}>
+      <body
+        suppressHydrationWarning
+        style={{ margin: 0, padding: 0, overflowX: 'hidden', width: '100%', maxWidth: '100vw', position: 'relative' }}
+      >
         {children}
         <FloatingQuoteButton />
       </body>

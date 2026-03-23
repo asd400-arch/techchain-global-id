@@ -23,11 +23,11 @@ const ID_LINKS = [
 export default function MarketplaceNav() {
   const pathname = usePathname();
   const [hovered, setHovered] = useState(null);
-  const [locale, setLocale] = useState('sg');
+  const [locale, setLocale] = useState('id');
 
   useEffect(() => {
     const match = document.cookie.match(/(?:^|; )locale=([^;]*)/);
-    setLocale(match ? match[1] : 'sg');
+    setLocale(match ? match[1] : 'id');
   }, []);
 
   const links = locale === 'id' ? [...BASE_LINKS, ...ID_LINKS] : BASE_LINKS;

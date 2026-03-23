@@ -34,7 +34,7 @@ const labelStyle = {
   letterSpacing: '0.5px',
 };
 
-export default function RFQForm({ prefillListingId, locale = 'sg' }) {
+export default function RFQForm({ prefillListingId, locale = 'id' }) {
   const isId = locale === 'id';
   const L = BAHASA_LABELS;
   const STEP_LABELS = isId ? L.step_labels : ['Requirements', 'Your Details', 'Review & Submit'];
