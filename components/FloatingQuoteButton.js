@@ -2,9 +2,14 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import QuoteModal from './QuoteModal';
+import { marketingLocaleFromPath } from '../lib/localePath';
+import { useSyncLocaleCookie } from '../lib/useSyncLocaleCookie';
+
 export default function FloatingQuoteButton() {
+  useSyncLocaleCookie();
   const pathname = usePathname();
-  const label = pathname.startsWith('/id') ? 'Minta Penawaran' : 'Request Quote';
+  const locale = marketingLocaleFromPath(pathname);
+  const label = locale === 'en' ? 'Request Quote' : 'Minta Penawaran';
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
@@ -18,7 +23,7 @@ export default function FloatingQuoteButton() {
       <div
         onClick={() => setIsOpen(true)}
         style={{
-          position: 'fixed', bottom: isMobile ? '20px' : '30px', right: isMobile ? '16px' : '30px', zIndex: 9990,
+          position: 'fixed', bottom: isMobile ? '20px' : '30px', right: isMobile ? '16px' : '30px', zIndex: 9000,
           display: 'flex', alignItems: 'center', gap: '10px',
           padding: isMobile ? '14px' : '15px 25px', borderRadius: '50px',
           background: 'linear-gradient(135deg, #00d4ff, #1a56db)',

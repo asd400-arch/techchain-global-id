@@ -1,16 +1,21 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams, notFound } from 'next/navigation';
+import { useParams, notFound, usePathname } from 'next/navigation';
 import Nav from '../../../components/Nav';
-import MarketplaceNav from '../../../components/MarketplaceNav';
 import CategoryHub from '../../../components/CategoryHub';
 import ProviderCard from '../../../components/ProviderCard';
 import { getVendorCategory } from '../../../../lib/marketplace/config';
 import { loadMarketplaceProvidersWithSeed } from '../../../../lib/marketplace/loadProvidersClient';
 import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../../lib/tcgAppUrls';
+import { marketingLocaleFromPath } from '../../../../lib/localePath';
+
+const HEADING = { id: 'Penyedia terkait', en: 'Related providers' };
+const DEMO = { id: 'Data demo (API tidak tersedia)', en: 'Demo data (API unavailable)' };
 
 export default function MarketplaceCategoryPage() {
+  const pathname = usePathname();
+  const locale = marketingLocaleFromPath(pathname);
   const params = useParams();
   const raw = params?.category;
   const categoryId = Array.isArray(raw) ? raw[0] : raw;
@@ -23,7 +28,6 @@ export default function MarketplaceCategoryPage() {
 
   useEffect(() => {
     if (!meta) return;
-    document.cookie = 'locale=id;path=/;max-age=86400';
     let cancelled = false;
     loadMarketplaceProvidersWithSeed({ limit: 48 }, { maxItems: 48, categoryId: meta.id }).then(({ vendors: v, usingSeed: u }) => {
       if (cancelled) return;
@@ -43,12 +47,11 @@ export default function MarketplaceCategoryPage() {
   return (
     <div style={{ background: '#0d0f14', color: '#e8eaf0', fontFamily: "'Outfit', sans-serif", minHeight: '100vh' }}>
       <Nav />
-      <MarketplaceNav />
       <CategoryHub category={meta} activeSubcategory={activeSub} onSubcategoryChange={setActiveSub} />
 
       <section style={{ padding: '32px 24px 80px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' }}>
-          <h2 style={{ fontSize: '18px', fontWeight: '700', margin: 0, color: '#e8eaf0' }}>Penyedia terkait</h2>
+          <h2 style={{ fontSize: '18px', fontWeight: '700', margin: 0, color: '#e8eaf0' }}>{HEADING[locale]}</h2>
           {usingSeed ? (
             <span
               style={{
@@ -63,7 +66,7 @@ export default function MarketplaceCategoryPage() {
                 background: 'rgba(167,139,250,0.08)',
               }}
             >
-              Data demo (API tidak tersedia)
+              {DEMO[locale]}
             </span>
           ) : null}
         </div>

@@ -122,7 +122,7 @@ export default function QuoteModal({ isOpen, onClose }) {
         </div>
         <div>
           <label style={labelStyle}>Phone *</label>
-          <input style={inputStyle} value={form.phone} onChange={e => update('phone', e.target.value)} placeholder="+65 1234 5678" />
+          <input style={inputStyle} value={form.phone} onChange={e => update('phone', e.target.value)} placeholder="+62 XXX XXXX XXXX" />
         </div>
         <div>
           <label style={labelStyle}>Country / Region *</label>
@@ -470,12 +470,12 @@ export default function QuoteModal({ isOpen, onClose }) {
 
   return (
     <>
-      <div onClick={onClose} style={{ position: 'fixed', inset: 0, zIndex: 9998, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(5px)' }}></div>
+      <div onClick={onClose} style={{ position: 'fixed', inset: 0, zIndex: 20000, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(5px)' }}></div>
       <div style={{
         position: 'fixed',
         top: m ? '5%' : '50%', left: m ? '3%' : '50%',
         transform: m ? 'none' : 'translate(-50%, -50%)',
-        zIndex: 9999,
+        zIndex: 20001,
         width: m ? '94%' : '90%', maxWidth: '700px',
         maxHeight: m ? '90vh' : '90vh',
         borderRadius: m ? '16px' : '24px', overflow: 'hidden',

@@ -98,10 +98,10 @@ const sections = [
     content: [
       'Jika Anda memiliki pertanyaan, kekhawatiran, atau permintaan terkait Kebijakan Privasi ini atau praktik data kami, silakan hubungi kami:',
       'Tech Chain Global Pte. Ltd.',
-      '176 Orchard Road, The Centrepoint, #05-05A',
-      'Singapore 238843',
+      'Kantor terdaftar: 176 Orchard Road, The Centrepoint, #05-05A, Singapore 238843',
+      'Kantor Indonesia: Komplek Nagoya Point Blok D No.02, Lubuk Baja, Batam 29444',
       'Email: privacy@techchainglobal.com',
-      'Telepon: +65 6990 7950',
+      'Telepon: +62 778 123 4567',
     ]
   },
 ];

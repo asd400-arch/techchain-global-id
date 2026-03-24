@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useParams, notFound } from 'next/navigation';
 import Link from 'next/link';
 import Nav from '../../../components/Nav';
-import MarketplaceNav from '../../../components/MarketplaceNav';
 import ProviderCard from '../../../components/ProviderCard';
 import { getVendorCategory } from '../../../../lib/marketplace/config';
 import { SEED_MARKETPLACE_PROVIDERS } from '../../../../lib/marketplace/seedProviders';
@@ -19,7 +18,6 @@ export default function MarketplaceProviderDetailPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    document.cookie = 'locale=id;path=/;max-age=86400';
     if (!id) return;
     let cancelled = false;
 
@@ -60,7 +58,6 @@ export default function MarketplaceProviderDetailPage() {
   return (
     <div style={{ background: '#0d0f14', color: '#e8eaf0', fontFamily: "'Outfit', sans-serif", minHeight: '100vh' }}>
       <Nav />
-      <MarketplaceNav />
       <section style={{ padding: '88px 24px 48px', maxWidth: '720px', margin: '0 auto' }}>
         <Link href="/marketplace/providers" style={{ color: '#e8b84b', textDecoration: 'none', fontSize: '14px', fontWeight: '600' }}>
           ← Semua penyedia

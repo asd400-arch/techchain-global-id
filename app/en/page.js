@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
-import { TCG_APP_LOGIN_URL, TCG_APP_SIGNUP_CLIENT_URL } from '../../lib/tcgAppUrls';
+import { TCG_APP_SIGNUP_CLIENT_URL } from '../../lib/tcgAppUrls';
 
 export default function EnglishHomePage() {
   const videoRef = useRef(null);
@@ -41,6 +41,7 @@ export default function EnglishHomePage() {
       <section
         style={{
           position: 'relative',
+          zIndex: 0,
           minHeight: '100vh',
           display: 'flex',
           alignItems: 'center',
@@ -62,6 +63,7 @@ export default function EnglishHomePage() {
             objectFit: 'cover',
             transform: 'scale(1)',
             willChange: 'transform',
+            pointerEvents: 'none',
           }}
         >
           <source src="/home_page.mp4" type="video/mp4" />
@@ -70,6 +72,7 @@ export default function EnglishHomePage() {
           style={{
             position: 'absolute',
             inset: 0,
+            pointerEvents: 'none',
             background: 'linear-gradient(135deg, rgba(10,22,40,0.55) 0%, rgba(15,43,91,0.45) 50%, rgba(10,22,40,0.55) 100%)',
           }}
         />
@@ -77,6 +80,7 @@ export default function EnglishHomePage() {
           style={{
             position: 'relative',
             zIndex: 2,
+            pointerEvents: 'auto',
             textAlign: 'center',
             maxWidth: '920px',
             padding: '0 20px',
@@ -97,7 +101,7 @@ export default function EnglishHomePage() {
               textTransform: 'uppercase',
             }}
           >
-            Indonesia marketing site · English overview
+            English · techchainglobal.id
           </div>
           <h1
             style={{
@@ -119,7 +123,7 @@ export default function EnglishHomePage() {
                 backgroundClip: 'text',
               }}
             >
-              anchored in Indonesia
+              across Asia-Pacific
             </span>
           </h1>
           <p
@@ -131,10 +135,7 @@ export default function EnglishHomePage() {
               lineHeight: '1.7',
             }}
           >
-            This is the{' '}
-            <strong style={{ color: 'rgba(255,255,255,0.9)' }}>techchainglobal.id</strong> experience — not the Singapore
-            marketing site. Browse in English here; detailed service pages are available in Indonesian with the same regional
-            coverage and TCG Express links for Indonesia (+62).
+            Browse this site in English: the same regional coverage, marketplace, and Indonesia (+62) TCG Express flows as the Bahasa Indonesia site — use the header switcher (<strong style={{ color: 'rgba(255,255,255,0.9)' }}>🇮🇩 ID</strong>) anytime.
           </p>
           <div
             style={{
@@ -146,7 +147,7 @@ export default function EnglishHomePage() {
             }}
           >
             <a
-              href="/contact"
+              href="/en/contact"
               style={{
                 padding: '14px 28px',
                 borderRadius: '10px',
@@ -160,7 +161,7 @@ export default function EnglishHomePage() {
               Contact
             </a>
             <a
-              href="/services"
+              href="/en/services"
               style={{
                 padding: '14px 28px',
                 borderRadius: '10px',
@@ -172,7 +173,7 @@ export default function EnglishHomePage() {
                 background: 'rgba(255,255,255,0.06)',
               }}
             >
-              Services (ID)
+              Services
             </a>
             <a
               href="/"
@@ -225,15 +226,14 @@ export default function EnglishHomePage() {
               }}
             />
             <span style={{ color: '#00d4aa', fontSize: '12px', fontWeight: '700', letterSpacing: '0.06em' }}>
-              BETA LIVE — Indonesia
+              TCG Express — Indonesia
             </span>
           </div>
           <h2 style={{ fontSize: m ? '22px' : '28px', fontWeight: '800', color: 'white', marginBottom: '12px' }}>
-            TCG Express — Indonesia app
+            B2B technology delivery
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '15px', lineHeight: '1.75', marginBottom: '22px' }}>
-            Indonesia&apos;s first B2B delivery platform for technology equipment. Sign up and sign in use the same Indonesia
-            flows (+62) as the rest of this site — not the Singapore-only defaults on techchainglobal.com.
+            Same-day and scheduled B2B delivery for IT equipment across Indonesia — motorcycle to 40 ft trailer.
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <a
@@ -250,12 +250,10 @@ export default function EnglishHomePage() {
                 fontSize: '14px',
               }}
             >
-              Book a Delivery
+              Book a delivery
             </a>
             <a
-              href={TCG_APP_LOGIN_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/en/tech-delivery"
               style={{
                 padding: '12px 22px',
                 borderRadius: '10px',
@@ -266,21 +264,7 @@ export default function EnglishHomePage() {
                 fontSize: '14px',
               }}
             >
-              Sign In
-            </a>
-            <a
-              href="/tech-delivery"
-              style={{
-                padding: '12px 22px',
-                borderRadius: '10px',
-                color: 'rgba(255,255,255,0.75)',
-                textDecoration: 'none',
-                fontWeight: '600',
-                fontSize: '14px',
-                border: '1px solid rgba(255,255,255,0.12)',
-              }}
-            >
-              Tech delivery (ID) →
+              Learn more →
             </a>
           </div>
         </div>
@@ -288,9 +272,7 @@ export default function EnglishHomePage() {
 
       <section style={{ padding: pad, background: '#0e1f3d', textAlign: 'center' }}>
         <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '14px', maxWidth: '560px', margin: '0 auto', lineHeight: '1.7' }}>
-          Marketplace, RFQ, Batam &amp; Jakarta pages, and service detail copy are in Indonesian. Use the header switcher:
-          <strong style={{ color: 'rgba(255,255,255,0.75)' }}> 🇮🇩 ID</strong> for the full site in Bahasa Indonesia on this
-          domain.
+          Marketplace, RFQ, and regional pages stay available in English URLs under <strong style={{ color: 'rgba(255,255,255,0.75)' }}>/en/…</strong>. Some long-form copy may still appear in Bahasa Indonesia where noted.
         </p>
       </section>
     </div>

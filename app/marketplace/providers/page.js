@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Nav from '../../components/Nav';
-import MarketplaceNav from '../../components/MarketplaceNav';
 import ProviderCard from '../../components/ProviderCard';
 import { loadMarketplaceProvidersWithSeed } from '../../../lib/marketplace/loadProvidersClient';
 import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../lib/tcgAppUrls';
@@ -13,7 +12,6 @@ export default function MarketplaceProvidersPage() {
   const [usingSeed, setUsingSeed] = useState(false);
 
   useEffect(() => {
-    document.cookie = 'locale=id;path=/;max-age=86400';
     let cancelled = false;
     loadMarketplaceProvidersWithSeed({ limit: 48 }, { maxItems: 48 }).then(({ vendors: v, usingSeed: u }) => {
       if (cancelled) return;
@@ -29,7 +27,6 @@ export default function MarketplaceProvidersPage() {
   return (
     <div style={{ background: '#0d0f14', color: '#e8eaf0', fontFamily: "'Outfit', sans-serif", minHeight: '100vh' }}>
       <Nav />
-      <MarketplaceNav />
       <section style={{ padding: '88px 24px 40px', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
         <h1 style={{ fontSize: 'clamp(24px, 3vw, 36px)', fontWeight: '800', margin: '0 0 10px' }}>Semua penyedia</h1>
         <p style={{ color: '#7a8099', maxWidth: '560px', margin: '0 auto', lineHeight: '1.65' }}>

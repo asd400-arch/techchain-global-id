@@ -1,19 +1,47 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Nav from '../components/Nav';
-import MarketplaceNav from '../components/MarketplaceNav';
 import ProviderCard from '../components/ProviderCard';
 import { VENDOR_CATEGORIES } from '../../lib/marketplace/config';
 import { loadMarketplaceProvidersWithSeed } from '../../lib/marketplace/loadProvidersClient';
 import { TCG_APP_SIGNUP_CLIENT_URL } from '../../lib/tcgAppUrls';
+import { marketingLocaleFromPath, withLocalePrefix } from '../../lib/localePath';
+
+const UI = {
+  id: {
+    sub: 'Gudang, otomasi, peralatan, dan layanan logistik di Asia — jelajahi penyedia terverifikasi. Submenu',
+    subStrong: 'Marketplace',
+    subAfter: 'di bilah atas untuk kategori & RFQ.',
+    region: 'Kawasan ID:',
+    rfq: 'Minta penawaran (RFQ) →',
+    signup: 'Daftarkan bisnis Anda →',
+    explore: 'Jelajahi kategori',
+    featured: 'Penyedia unggulan',
+    demo: 'Data demo (API tidak tersedia)',
+  },
+  en: {
+    sub: 'Warehouses, automation, equipment, and logistics across Asia — browse verified providers. Use the',
+    subStrong: 'Marketplace',
+    subAfter: 'submenu in the top bar for categories & RFQ.',
+    region: 'Indonesia hubs:',
+    rfq: 'Request quote (RFQ) →',
+    signup: 'List your business →',
+    explore: 'Browse categories',
+    featured: 'Featured providers',
+    demo: 'Demo data (API unavailable)',
+  },
+};
 
 export default function MarketplaceBrowsePage() {
+  const pathname = usePathname();
+  const locale = marketingLocaleFromPath(pathname);
+  const t = UI[locale];
   const [vendors, setVendors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [usingSeed, setUsingSeed] = useState(false);
 
   useEffect(() => {
-    document.cookie = 'locale=id;path=/;max-age=86400';
     let cancelled = false;
 
     loadMarketplaceProvidersWithSeed({ limit: 24 }, { maxItems: 24 }).then(({ vendors: v, usingSeed: seed }) => {
@@ -31,12 +59,11 @@ export default function MarketplaceBrowsePage() {
   return (
     <div style={{ background: '#0d0f14', color: '#e8eaf0', fontFamily: "'Outfit', sans-serif", minHeight: '100vh' }}>
       <Nav active="Marketplace" />
-      <MarketplaceNav />
 
       <section
         style={{
           background: 'linear-gradient(160deg, #0d0f14 0%, #13161e 60%, #0d0f14 100%)',
-          padding: '88px 24px 40px',
+          padding: '40px 24px 40px',
           textAlign: 'center',
           borderBottom: '1px solid rgba(255,255,255,0.05)',
         }}
@@ -55,8 +82,8 @@ export default function MarketplaceBrowsePage() {
           TCG Marketplace
         </h1>
         <p style={{ fontSize: 'clamp(14px, 2vw, 17px)', color: '#7a8099', maxWidth: '560px', margin: '0 auto', lineHeight: '1.65' }}>
-          Gudang, otomasi, peralatan, dan layanan logistik di Asia — jelajahi penyedia terverifikasi. Submenu{' '}
-          <strong style={{ color: 'rgba(232,234,240,0.85)' }}>Marketplace</strong> di bilah atas untuk kategori & RFQ.
+          {t.sub}{' '}
+          <strong style={{ color: 'rgba(232,234,240,0.85)' }}>{t.subStrong}</strong> {t.subAfter}
         </p>
         <div
           style={{
@@ -70,18 +97,18 @@ export default function MarketplaceBrowsePage() {
             alignItems: 'center',
           }}
         >
-          <span style={{ opacity: 0.75 }}>Kawasan ID:</span>
-          <a href="/marketplace/batam" style={{ color: '#3ecf8e', textDecoration: 'none', fontWeight: '600' }}>
+          <span style={{ opacity: 0.75 }}>{t.region}</span>
+          <a href={withLocalePrefix('/marketplace/batam', locale)} style={{ color: '#3ecf8e', textDecoration: 'none', fontWeight: '600' }}>
             🏝️ Batam
           </a>
           <span style={{ opacity: 0.35 }}>·</span>
-          <a href="/marketplace/jakarta" style={{ color: '#60a5fa', textDecoration: 'none', fontWeight: '600' }}>
+          <a href={withLocalePrefix('/marketplace/jakarta', locale)} style={{ color: '#60a5fa', textDecoration: 'none', fontWeight: '600' }}>
             🏙️ Jakarta
           </a>
         </div>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '28px' }}>
           <a
-            href="/marketplace/rfq"
+            href={withLocalePrefix('/marketplace/rfq', locale)}
             style={{
               textDecoration: 'none',
               padding: '12px 22px',
@@ -92,7 +119,7 @@ export default function MarketplaceBrowsePage() {
               fontSize: '14px',
             }}
           >
-            Minta penawaran (RFQ) →
+            {t.rfq}
           </a>
           <a
             href={TCG_APP_SIGNUP_CLIENT_URL}
@@ -106,18 +133,18 @@ export default function MarketplaceBrowsePage() {
               fontSize: '14px',
             }}
           >
-            Daftarkan bisnis Anda →
+            {t.signup}
           </a>
         </div>
       </section>
 
       <section style={{ padding: '0 24px 40px', maxWidth: '1100px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '20px', fontWeight: '700', margin: '0 0 18px', color: '#e8eaf0' }}>Jelajahi kategori</h2>
+        <h2 style={{ fontSize: '20px', fontWeight: '700', margin: '0 0 18px', color: '#e8eaf0' }}>{t.explore}</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '14px' }}>
           {VENDOR_CATEGORIES.map((c) => (
             <a
               key={c.id}
-              href={`/marketplace/category/${c.id}`}
+              href={withLocalePrefix(`/marketplace/category/${c.id}`, locale)}
               style={{
                 display: 'block',
                 textDecoration: 'none',
@@ -138,7 +165,7 @@ export default function MarketplaceBrowsePage() {
 
       <section style={{ padding: '40px 24px 72px', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px', marginBottom: '16px' }}>
-          <h2 style={{ fontSize: '18px', fontWeight: '700', margin: 0, color: '#e8eaf0' }}>Penyedia unggulan</h2>
+          <h2 style={{ fontSize: '18px', fontWeight: '700', margin: 0, color: '#e8eaf0' }}>{t.featured}</h2>
           {usingSeed ? (
             <span
               style={{
@@ -153,7 +180,7 @@ export default function MarketplaceBrowsePage() {
                 background: 'rgba(167,139,250,0.08)',
               }}
             >
-              Data demo (API tidak tersedia)
+              {t.demo}
             </span>
           ) : null}
         </div>

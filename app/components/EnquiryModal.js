@@ -15,7 +15,7 @@ const labelStyle = {
 };
 
 export default function EnquiryModal({ vendor, listing, onClose }) {
-  const [form, setForm] = useState({ from_name: '', from_company: '', from_email: '', from_phone: '', from_country: 'SG', message: '' });
+  const [form, setForm] = useState({ from_name: '', from_company: '', from_email: '', from_phone: '', from_country: 'ID', message: '' });
   const [status, setStatus] = useState('');
 
   // Close on Escape
@@ -118,7 +118,7 @@ export default function EnquiryModal({ vendor, listing, onClose }) {
               </div>
               <div>
                 <label style={labelStyle}>Phone</label>
-                <input type="tel" placeholder="+65 XXXX" value={form.from_phone}
+                <input type="tel" placeholder="+62 XXX XXXX" value={form.from_phone}
                   onChange={e => set('from_phone', e.target.value)} style={inputStyle} />
               </div>
             </div>

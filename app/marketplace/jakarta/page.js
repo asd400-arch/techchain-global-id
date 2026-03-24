@@ -10,7 +10,6 @@ export default function JakartaPage() {
   const [usingSeed, setUsingSeed] = useState(false);
 
   useEffect(() => {
-    document.cookie = 'locale=id;path=/;max-age=86400';
     let cancelled = false;
     loadMarketplaceProvidersWithSeed({ country: 'ID', limit: 6 }, { maxItems: 6 }).then(({ vendors: v, usingSeed: seed }) => {
       if (cancelled) return;

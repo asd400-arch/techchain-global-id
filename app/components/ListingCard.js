@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { getVendorCategory, getCurrencySymbol, getCountry } from '../../lib/marketplace/config';
 
 function formatListingPrice(listing) {
-  const sym = getCurrencySymbol(listing.currency || 'SGD');
+  const sym = getCurrencySymbol(listing.currency || 'IDR');
   switch (listing.price_type) {
     case 'quote':   return { label: '💬 Quote on Request', color: '#7a8099' };
     case 'fixed':   return { label: `${sym}${Number(listing.price_from).toLocaleString()}`, color: '#3ecf8e' };

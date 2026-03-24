@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { getVendorCategory, getCountry } from '../../lib/marketplace/config';
+import { marketingLocaleFromPath, withLocalePrefix } from '../../lib/localePath';
 
 const PLAN_BADGE = {
   free:       { label: 'Free',          bg: 'rgba(122,128,153,0.12)', color: '#7a8099', border: 'rgba(122,128,153,0.3)'  },
@@ -10,6 +12,8 @@ const PLAN_BADGE = {
 };
 
 export default function ProviderCard({ vendor }) {
+  const pathname = usePathname();
+  const locale = marketingLocaleFromPath(pathname);
   const [hovered, setHovered] = useState(false);
   const cat = getVendorCategory(vendor.category_id);
   const countries = (vendor.country_codes || []).slice(0, 4).map(c => getCountry(c)).filter(Boolean);
@@ -153,7 +157,7 @@ export default function ProviderCard({ vendor }) {
 
       {/* CTA */}
       <a
-        href={`/marketplace/providers/${vendor.id}`}
+        href={withLocalePrefix(`/marketplace/providers/${vendor.id}`, locale)}
         onClick={e => e.stopPropagation()}
         style={{
           display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '4px',

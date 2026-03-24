@@ -2,9 +2,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import InteractiveMap from '../components/InteractiveMap';
-import Nav from '../components/Nav';
+import Nav from './components/Nav';
 import useMobile from '../components/useMobile';
-import { TCG_APP_SIGNUP_CLIENT_URL, TCG_APP_LOGIN_URL } from '../lib/tcgAppUrls';
+import { TCG_APP_SIGNUP_CLIENT_URL } from '../lib/tcgAppUrls';
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
@@ -81,20 +81,20 @@ export default function Home() {
 
       {/* HERO */}
       <section style={{
-        position: 'relative', minHeight: '100vh',
+        position: 'relative', zIndex: 0, minHeight: '100vh',
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         overflow: 'hidden',
       }}>
         <video ref={videoRef} autoPlay muted loop playsInline style={{
           position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover',
-          transform: 'scale(1)', willChange: 'transform',
+          transform: 'scale(1)', willChange: 'transform', pointerEvents: 'none',
         }}>
           <source src="/home_page.mp4" type="video/mp4" />
         </video>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,22,40,0.55) 0%, rgba(15,43,91,0.45) 50%, rgba(10,22,40,0.55) 100%)' }}></div>
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.03, backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(135deg, rgba(10,22,40,0.55) 0%, rgba(15,43,91,0.45) 50%, rgba(10,22,40,0.55) 100%)' }}></div>
+        <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', opacity: 0.03, backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '60px 60px' }}></div>
 
-        <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '950px', padding: '0 20px' }}>
+        <div style={{ position: 'relative', zIndex: 2, pointerEvents: 'auto', textAlign: 'center', maxWidth: '950px', padding: '0 20px' }}>
           <div className="animate-fadeInUp" style={{
             display: 'inline-block', padding: '8px 20px', borderRadius: '30px',
             border: '1px solid rgba(0,212,255,0.3)', background: 'rgba(0,212,255,0.08)',
@@ -180,28 +180,31 @@ export default function Home() {
               borderRadius: '100px', padding: '6px 16px', marginBottom: '16px',
             }}>
               <span style={{ width: '8px', height: '8px', background: '#00d4aa', borderRadius: '50%', animation: 'pulse 2s infinite' }}></span>
-              <span style={{ color: '#00d4aa', fontSize: '12px', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' }}>BETA LIVE — Indonesia</span>
+              <span style={{ color: '#00d4aa', fontSize: '12px', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' }}>Zona Indonesia (+62)</span>
             </div>
             <h3 style={{ fontSize: m ? '24px' : '32px', fontWeight: '800', color: 'white', lineHeight: '1.2', marginBottom: '12px' }}>
-              TCG Express <span style={{ color: '#00d4aa' }}>is live</span>
+              TCG Express <span style={{ color: '#00d4aa' }}>Indonesia</span> — sudah live
             </h3>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: m ? '14px' : '16px', lineHeight: '1.7', marginBottom: '24px' }}>
-              Indonesia&apos;s first B2B delivery platform for technology equipment. Real-time quotes, GPS tracking, nine vehicle types, and integrated payments.
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: m ? '14px' : '16px', lineHeight: '1.7', marginBottom: '8px' }}>
+              Platform B2B pengiriman peralatan teknologi untuk Indonesia. Kuota, GPS, dan pembayaran terintegrasi — lewat aplikasi zona <strong style={{ color: 'rgba(255,255,255,0.85)' }}>+62</strong>, bukan default Singapura (+65).
+            </p>
+            <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: m ? '12px' : '13px', lineHeight: '1.5', marginBottom: '24px', fontFamily: 'ui-monospace, monospace' }}>
+              app.techchainglobal.com/id/…
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" style={{
+              <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" title="Daftar klien — app.techchainglobal.com/id/signup" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '13px 26px', borderRadius: '10px',
                 background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628',
                 textDecoration: 'none', fontWeight: '700', fontSize: '14px',
-              }}>Book a Delivery</a>
-              <a href={TCG_APP_LOGIN_URL} target="_blank" rel="noopener noreferrer" style={{
+              }}>Pesan pengiriman</a>
+              <a href="/tech-delivery" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '13px 26px', borderRadius: '10px',
                 background: 'transparent', color: '#00d4aa',
                 textDecoration: 'none', fontWeight: '700', fontSize: '14px',
                 border: '1px solid rgba(0,212,170,0.3)',
-              }}>Sign In</a>
+              }}>Info Pengiriman →</a>
             </div>
           </div>
           <div style={{
@@ -346,10 +349,10 @@ export default function Home() {
             </p>
             <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {[
-                { icon: '📍', label: '21 Tan Quee Lan Street, #02-04 Heritage Place, Indonesia 188108' },
+                { icon: '📍', label: 'Komplek Nagoya Point Blok D No.02, Lubuk Baja, Batam 29444, Indonesia' },
                 { icon: '📧', label: 'admin@techchainglobal.com', href: 'mailto:admin@techchainglobal.com' },
-                { icon: '📞', label: '+65 8976 3771', href: 'tel:+6589763771' },
-                { icon: null, label: 'WhatsApp', href: 'https://wa.me/6589763771', isWhatsApp: true },
+                { icon: '📞', label: '+62 778 123 4567', href: 'tel:+627781234567' },
+                { icon: null, label: 'WhatsApp', href: 'https://wa.me/627781234567', isWhatsApp: true },
               ].map((item, i) => (
                 <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                   <div style={{

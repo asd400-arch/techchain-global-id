@@ -1,7 +1,6 @@
 'use client';
 
 import Nav from '../../components/Nav';
-import MarketplaceNav from '../../components/MarketplaceNav';
 import Link from 'next/link';
 import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../lib/tcgAppUrls';
 
@@ -31,7 +30,6 @@ export default function MarketplacePricingPage() {
   return (
     <div style={{ background: '#0d0f14', color: '#e8eaf0', fontFamily: "'Outfit', sans-serif", minHeight: '100vh' }}>
       <Nav />
-      <MarketplaceNav />
       <section style={{ padding: '88px 24px 32px', textAlign: 'center' }}>
         <h1 style={{ fontSize: 'clamp(26px, 4vw, 40px)', fontWeight: '800', margin: '0 0 12px' }}>Harga Marketplace</h1>
         <p style={{ color: '#7a8099', maxWidth: '560px', margin: '0 auto', lineHeight: '1.65' }}>

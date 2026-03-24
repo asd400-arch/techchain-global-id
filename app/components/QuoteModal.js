@@ -122,7 +122,7 @@ export default function QuoteModal({ isOpen, onClose }) {
         </div>
         <div>
           <label style={labelStyle}>Phone *</label>
-          <input style={inputStyle} value={form.phone} onChange={e => update('phone', e.target.value)} placeholder="+65 1234 5678" />
+          <input style={inputStyle} value={form.phone} onChange={e => update('phone', e.target.value)} placeholder="+62 XXX XXXX XXXX" />
         </div>
         <div>
           <label style={labelStyle}>Country / Region *</label>

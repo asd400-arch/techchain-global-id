@@ -1,62 +1,81 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { marketingLocaleFromPath, stripLocalePrefix, withLocalePrefix } from '../../lib/localePath';
+import useMobile from './useMobile';
 
 const BASE_LINKS = [
-  { label: 'Browse All',       href: '/marketplace' },
-  { label: '🏭 Warehouse',     href: '/marketplace/category/warehouse_space' },
-  { label: '⚙️ Automation',    href: '/marketplace/category/automation' },
-  { label: '🔧 Equipment',     href: '/marketplace/category/equipment_systems' },
-  { label: '🚜 MHE',           href: '/marketplace/category/material_handling' },
-  { label: '🚚 Logistics',     href: '/marketplace/category/logistics_services' },
-  { label: 'All Providers',    href: '/marketplace/providers' },
-  { label: 'List Your Business', href: '/marketplace/provider/register' },
-  { label: 'Dashboard',        href: '/marketplace/provider/dashboard' },
-  { label: '💳 Pricing',       href: '/marketplace/pricing' },
+  { id: { label: 'Semua' },              en: { label: 'Browse All' },       href: '/marketplace' },
+  { id: { label: '🏭 Gudang' },          en: { label: '🏭 Warehouse' },     href: '/marketplace/category/warehouse_space' },
+  { id: { label: '⚙️ Otomasi' },         en: { label: '⚙️ Automation' },    href: '/marketplace/category/automation' },
+  { id: { label: '🔧 Peralatan' },       en: { label: '🔧 Equipment' },     href: '/marketplace/category/equipment_systems' },
+  { id: { label: '🚜 MHE' },             en: { label: '🚜 MHE' },           href: '/marketplace/category/material_handling' },
+  { id: { label: '🚚 Logistik' },        en: { label: '🚚 Logistics' },     href: '/marketplace/category/logistics_services' },
+  { id: { label: 'Semua Penyedia' },     en: { label: 'All Providers' },    href: '/marketplace/providers' },
+  { id: { label: 'Daftarkan Bisnis' },   en: { label: 'List Your Business' }, href: '/marketplace/provider/register' },
+  { id: { label: 'Dasbor' },             en: { label: 'Dashboard' },        href: '/marketplace/provider/dashboard' },
+  { id: { label: '💳 Harga' },           en: { label: '💳 Pricing' },       href: '/marketplace/pricing' },
 ];
 
 const ID_LINKS = [
-  { label: '🏝️ Batam',  href: '/marketplace/batam' },
-  { label: '🏙️ Jakarta', href: '/marketplace/jakarta' },
+  { id: { label: '🏝️ Batam' }, en: { label: '🏝️ Batam' }, href: '/marketplace/batam' },
+  { id: { label: '🏙️ Jakarta' }, en: { label: '🏙️ Jakarta' }, href: '/marketplace/jakarta' },
 ];
 
-export default function MarketplaceNav() {
+/**
+ * Second row of the marketplace header — must sit inside the same fixed container as Nav
+ * (main row on top, this row below). Do not use a separate position:fixed strip.
+ */
+export function MarketplaceSubnavStrip() {
   const pathname = usePathname();
+  const locale = marketingLocaleFromPath(pathname);
+  const basePath = stripLocalePrefix(pathname);
   const [hovered, setHovered] = useState(null);
-  const [locale, setLocale] = useState('id');
+  const m = useMobile();
 
-  useEffect(() => {
-    const match = document.cookie.match(/(?:^|; )locale=([^;]*)/);
-    setLocale(match ? match[1] : 'id');
-  }, []);
-
-  const links = locale === 'id' ? [...BASE_LINKS, ...ID_LINKS] : BASE_LINKS;
+  const links = [...BASE_LINKS, ...ID_LINKS];
+  const padX = m ? '16px' : '28px';
 
   return (
-    <div style={{
-      position: 'sticky', top: 0, zIndex: 900,
-      background: '#13161e',
-      borderBottom: '1px solid rgba(255,255,255,0.07)',
-      display: 'flex', alignItems: 'center',
-      overflowX: 'auto', scrollbarWidth: 'none',
-      WebkitOverflowScrolling: 'touch',
-    }}>
-      <div style={{ display: 'flex', padding: '0 24px', minWidth: 'max-content', alignItems: 'center' }}>
+    <div
+      role="navigation"
+      aria-label="Marketplace"
+      style={{
+        width: '100%',
+        boxSizing: 'border-box',
+        flexShrink: 0,
+        background: '#13161e',
+        borderTop: '1px solid rgba(255,255,255,0.07)',
+        borderBottom: '1px solid rgba(255,255,255,0.07)',
+        display: 'flex',
+        alignItems: 'center',
+        overflowX: 'auto',
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+        WebkitOverflowScrolling: 'touch',
+      }}
+    >
+      <div style={{ display: 'flex', padding: `0 ${padX}`, minWidth: 'max-content', alignItems: 'center', flexShrink: 0 }}>
         {links.map((link, i) => {
-          const isActive = pathname === link.href || (link.href !== '/marketplace' && pathname.startsWith(link.href + '/'));
-          const isDivider = link.href === '/marketplace/providers' || link.href === '/marketplace/provider/register' || (locale === 'id' && link.href === '/marketplace/batam');
+          const href = withLocalePrefix(link.href, locale);
+          const label = link[locale]?.label || link.en.label;
+          const isActive = basePath === link.href || (link.href !== '/marketplace' && basePath.startsWith(link.href + '/'));
+          const isDivider =
+            link.href === '/marketplace/providers' ||
+            link.href === '/marketplace/provider/register' ||
+            link.href === '/marketplace/batam';
           return (
             <div key={i} style={{ display: 'flex', alignItems: 'center' }}>
               {isDivider && (
                 <div style={{ width: '1px', height: '18px', background: 'rgba(255,255,255,0.1)', margin: '0 4px' }} />
               )}
               <a
-                href={link.href}
+                href={href}
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
                 style={{
                   textDecoration: 'none',
-                  padding: '14px 16px',
+                  padding: '12px 14px',
                   fontSize: '13px',
                   fontWeight: '500',
                   fontFamily: "'Outfit', sans-serif",
@@ -66,7 +85,7 @@ export default function MarketplaceNav() {
                   transition: 'all 0.2s',
                 }}
               >
-                {link.label}
+                {label}
               </a>
             </div>
           );

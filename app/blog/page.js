@@ -1,9 +1,13 @@
 'use client';
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
+import { marketingLocaleFromPath } from '../../lib/localePath';
 
 export default function Blog() {
+  const pathname = usePathname();
+  const locale = marketingLocaleFromPath(pathname);
   const [scrollY, setScrollY] = useState(0);
   const [activePost, setActivePost] = useState(null);
   const m = useMobile();
@@ -69,6 +73,36 @@ export default function Blog() {
 
   const featured = posts[0];
 
+  const ui = locale === 'en' ? {
+    heroKicker: 'Blog & insights',
+    heroTitle: 'Technology intelligence',
+    heroSub: 'Insights, trends, and strategies for data centre and technical operations across Asia-Pacific.',
+    featuredLabel: 'Featured article',
+    allLabel: 'All articles',
+    readCta: 'Read article →',
+    back: '← Back to all articles',
+    stayTitle: 'Stay updated',
+    staySub: 'Subscribe for the latest data centre and technology insights across APAC.',
+    emailPh: 'Your email address',
+    subscribe: 'Subscribe',
+    footer: '© 2026 Tech Chain Global. All rights reserved.',
+    idNotice: 'Articles below are in Bahasa Indonesia; English summaries are planned.',
+  } : {
+    heroKicker: 'Blog & Wawasan',
+    heroTitle: 'Intelijen Teknologi',
+    heroSub: 'Wawasan, tren, dan strategi untuk operasi pusat data dan layanan teknis di seluruh Asia-Pasifik.',
+    featuredLabel: 'Artikel Unggulan',
+    allLabel: 'Semua Artikel',
+    readCta: 'Baca Artikel →',
+    back: '← Kembali ke semua artikel',
+    stayTitle: 'Tetap Diperbarui',
+    staySub: 'Berlangganan newsletter kami untuk wawasan pusat data terbaru dan tren teknologi di seluruh Asia-Pasifik.',
+    emailPh: 'Masukkan alamat email Anda',
+    subscribe: 'Berlangganan',
+    footer: '© 2026 Tech Chain Global. Seluruh hak cipta dilindungi.',
+    idNotice: null,
+  };
+
   if (activePost) {
     const post = posts.find(p => p.id === activePost);
     return (
@@ -93,11 +127,11 @@ export default function Blog() {
             </div>
           ))}
           <div style={{ marginTop: '50px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
-            <span onClick={() => setActivePost(null)} style={{ color: '#00d4ff', fontWeight: '600', fontSize: '16px', cursor: 'pointer' }}>← Kembali ke semua artikel</span>
+            <span onClick={() => setActivePost(null)} style={{ color: '#00d4ff', fontWeight: '600', fontSize: '16px', cursor: 'pointer' }}>{ui.back}</span>
           </div>
         </div>
         <footer style={{ background: '#060e1a', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '30px 20px', textAlign: 'center' }}>
-          <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>© 2026 Tech Chain Global. Seluruh hak cipta dilindungi.</span>
+          <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>{ui.footer}</span>
         </footer>
       </div>
     );
@@ -111,15 +145,21 @@ export default function Blog() {
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/Technical_Service_Center.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,22,40,0.93), rgba(15,43,91,0.88))' }}></div>
         <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', width: '100%', padding: m ? '100px 16px 50px' : '120px 20px 60px' }}>
-          <span className="animate-fadeInUp" style={{ color: '#00d4ff', fontSize: m ? '12px' : '14px', fontWeight: '600', letterSpacing: '3px', textTransform: 'uppercase' }}>Blog & Wawasan</span>
-          <h1 className="animate-fadeInUp delay-1" style={{ fontSize: m ? '32px' : '56px', fontWeight: '800', color: 'white', marginTop: '15px', letterSpacing: '-2px' }}>Intelijen Teknologi</h1>
-          <p className="animate-fadeInUp delay-2" style={{ fontSize: m ? '15px' : '19px', color: 'rgba(255,255,255,0.6)', maxWidth: '600px', margin: '20px auto 0', lineHeight: '1.7' }}>Wawasan, tren, dan strategi untuk operasi pusat data dan layanan teknis di seluruh Asia-Pasifik.</p>
+          <span className="animate-fadeInUp" style={{ color: '#00d4ff', fontSize: m ? '12px' : '14px', fontWeight: '600', letterSpacing: '3px', textTransform: 'uppercase' }}>{ui.heroKicker}</span>
+          <h1 className="animate-fadeInUp delay-1" style={{ fontSize: m ? '32px' : '56px', fontWeight: '800', color: 'white', marginTop: '15px', letterSpacing: '-2px' }}>{ui.heroTitle}</h1>
+          <p className="animate-fadeInUp delay-2" style={{ fontSize: m ? '15px' : '19px', color: 'rgba(255,255,255,0.6)', maxWidth: '600px', margin: '20px auto 0', lineHeight: '1.7' }}>{ui.heroSub}</p>
         </div>
       </section>
 
+      {ui.idNotice ? (
+        <div style={{ background: '#13161e', borderBottom: '1px solid rgba(255,255,255,0.06)', padding: '12px 20px', textAlign: 'center', fontSize: '13px', color: '#94a3b8' }}>
+          {ui.idNotice}
+        </div>
+      ) : null}
+
       <section style={{ padding: m ? '50px 16px 30px' : '80px 40px 40px', background: '#0a1628' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase' }}>Artikel Unggulan</span>
+          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase' }}>{ui.featuredLabel}</span>
           <div onClick={() => { setActivePost(featured.id); window.scrollTo(0, 0); }} style={{
             marginTop: '20px', display: 'grid', gridTemplateColumns: m ? '1fr' : '1.3fr 1fr',
             borderRadius: '20px', overflow: 'hidden',
@@ -138,7 +178,7 @@ export default function Blog() {
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: m ? '14px' : '16px', lineHeight: '1.7', marginTop: '15px' }}>{featured.excerpt}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '30px' }}>
                 <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '14px' }}>{featured.date}</span>
-                <span style={{ color: '#00d4ff', fontWeight: '600', fontSize: '15px' }}>Baca Artikel →</span>
+                <span style={{ color: '#00d4ff', fontWeight: '600', fontSize: '15px' }}>{ui.readCta}</span>
               </div>
             </div>
           </div>
@@ -147,7 +187,7 @@ export default function Blog() {
 
       <section style={{ padding: m ? '30px 16px 50px' : '40px 40px 80px', background: '#0a1628' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase' }}>Semua Artikel</span>
+          <span style={{ color: 'rgba(255,255,255,0.4)', fontSize: '13px', fontWeight: '600', letterSpacing: '2px', textTransform: 'uppercase' }}>{ui.allLabel}</span>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: '25px', marginTop: '25px' }}>
             {posts.slice(1).map((post, i) => (
               <div key={i} onClick={() => { setActivePost(post.id); window.scrollTo(0, 0); }} style={{
@@ -168,7 +208,7 @@ export default function Blog() {
                   <p style={{ color: 'rgba(255,255,255,0.45)', fontSize: '14px', lineHeight: '1.6' }}>{post.excerpt}</p>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '15px' }}>
                     <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '12px' }}>{post.date}</span>
-                    <span style={{ color: '#00d4ff', fontWeight: '600', fontSize: '14px' }}>Baca Artikel →</span>
+                    <span style={{ color: '#00d4ff', fontWeight: '600', fontSize: '14px' }}>{ui.readCta}</span>
                   </div>
                 </div>
               </div>
@@ -180,10 +220,10 @@ export default function Blog() {
       <section style={{ padding: m ? '50px 16px' : '80px 40px', background: '#0e1f3d' }}>
         <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
           <div style={{ fontSize: '40px', marginBottom: '15px' }}>📬</div>
-          <h2 style={{ fontSize: m ? '26px' : '32px', fontWeight: '800', color: 'white', marginBottom: '12px' }}>Tetap Diperbarui</h2>
-          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', marginBottom: '30px', lineHeight: '1.7' }}>Berlangganan newsletter kami untuk wawasan pusat data terbaru dan tren teknologi di seluruh Asia-Pasifik.</p>
+          <h2 style={{ fontSize: m ? '26px' : '32px', fontWeight: '800', color: 'white', marginBottom: '12px' }}>{ui.stayTitle}</h2>
+          <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '16px', marginBottom: '30px', lineHeight: '1.7' }}>{ui.staySub}</p>
           <div style={{ display: 'flex', gap: '12px', flexDirection: m ? 'column' : 'row' }}>
-            <input type="email" placeholder="Masukkan alamat email Anda" style={{
+            <input type="email" placeholder={ui.emailPh} style={{
               flex: 1, padding: '16px 18px', borderRadius: '12px', fontSize: '15px',
               background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.1)',
               color: 'white', outline: 'none', fontFamily: "'Outfit', sans-serif",
@@ -193,13 +233,13 @@ export default function Blog() {
               background: 'linear-gradient(135deg, #00d4ff, #1a56db)',
               color: 'white', fontWeight: '700', cursor: 'pointer',
               fontFamily: "'Outfit', sans-serif", fontSize: '15px',
-            }}>Berlangganan</button>
+            }}>{ui.subscribe}</button>
           </div>
         </div>
       </section>
 
       <footer style={{ background: '#060e1a', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '30px 20px', textAlign: 'center' }}>
-        <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>© 2026 Tech Chain Global. Seluruh hak cipta dilindungi.</span>
+        <span style={{ color: 'rgba(255,255,255,0.3)', fontSize: '13px' }}>{ui.footer}</span>
       </footer>
     </div>
   );

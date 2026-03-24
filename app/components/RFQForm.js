@@ -56,11 +56,11 @@ export default function RFQForm({ prefillListingId, locale = 'id' }) {
     client_email: '',
     phone: '',
     budget_monthly: '',
-    currency: 'SGD',
+    currency: 'IDR',
   });
 
   useEffect(() => {
-    if (isId) set('currency', 'IDR');
+    if (!isId) set('currency', 'SGD');
   }, [isId]);
 
   const set = (key, val) => setForm(f => ({ ...f, [key]: val }));
@@ -293,7 +293,7 @@ export default function RFQForm({ prefillListingId, locale = 'id' }) {
             <div>
               <label style={labelStyle}>{isId ? L.phone_label : 'Phone'}</label>
               <input
-                type="tel" placeholder={isId ? L.phone_placeholder : '+65 XXXX XXXX'}
+                type="tel" placeholder={isId ? L.phone_placeholder : '+62 XXX XXXX XXXX'}
                 value={form.phone}
                 onChange={e => set('phone', e.target.value)}
                 style={inputStyle}

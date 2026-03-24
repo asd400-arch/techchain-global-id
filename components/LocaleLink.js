@@ -1,16 +1,11 @@
 'use client';
-import { useState, useEffect } from 'react';
 
-export default function LocaleLink({ sgHref, idHref, children, style, target, rel }) {
-  const [href, setHref] = useState(idHref);
-
-  useEffect(() => {
-    const locale = document.cookie.match(/locale=([^;]+)/)?.[1] || 'id';
-    setHref(locale === 'id' ? idHref : sgHref);
-  }, [sgHref, idHref]);
-
+/**
+ * Always links to Indonesia (`idHref`). `sgHref` is ignored — kept for call-site compatibility.
+ */
+export default function LocaleLink({ idHref, sgHref: _sg, children, style, target, rel }) {
   return (
-    <a href={href} style={style} target={target} rel={rel}>
+    <a href={idHref} style={style} target={target} rel={rel}>
       {children}
     </a>
   );
