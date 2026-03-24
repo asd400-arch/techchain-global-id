@@ -190,12 +190,13 @@ export default function Nav() {
         {!isMobile && (
           <div style={{
             display: 'flex',
-            flexWrap: isMarketplaceSection ? 'nowrap' : 'wrap',
-            gap: isMarketplaceSection ? 'clamp(8px, 1.2vw, 18px)' : 'clamp(10px, 1.8vw, 24px)',
+            flexWrap: 'nowrap',
+            gap: 'clamp(10px, 1.5vw, 22px)',
             alignItems: 'center',
             justifyContent: 'flex-end',
             flex: '1 1 0',
             minWidth: 0,
+            overflow: 'hidden',
           }}>
             {links.map((link, i) => {
               if (link.href === '/marketplace') {
