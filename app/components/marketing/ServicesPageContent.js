@@ -21,6 +21,17 @@ const COPY = {
     footer: '© 2026 Tech Chain Global. Seluruh hak cipta dilindungi.',
     ctaLink: 'Pelajari Lebih Lanjut dan Pesan',
     detailDelivery: 'Detail layanan pengiriman',
+    tdBadge: 'BETA LIVE — Indonesia',
+    tdKicker: 'TCG Express',
+    tdTitle: 'Pengiriman Teknologi Ekspres',
+    tdSub: 'Platform pengiriman B2B pertama di Indonesia yang dirancang khusus untuk peralatan teknologi — server, perangkat jaringan, dan hardware IT. Motor hingga trailer 40ft dengan penawaran real-time.',
+    tdBtn: 'Pelajari Lebih Lanjut →',
+    tdStats: [
+      { num: '9', label: 'Jenis Kendaraan' },
+      { num: '0%', label: 'Biaya Transaksi' },
+      { num: '24/7', label: 'Ketersediaan' },
+      { num: '<1s', label: 'Waktu Respons' },
+    ],
   },
   en: {
     heroKicker: 'Service offerings',
@@ -36,6 +47,17 @@ const COPY = {
     footer: '© 2026 Tech Chain Global. All rights reserved.',
     ctaLink: 'Learn more & book',
     detailDelivery: 'Delivery service details',
+    tdBadge: 'BETA LIVE — Indonesia',
+    tdKicker: 'TCG Express',
+    tdTitle: 'Express Technology Delivery',
+    tdSub: "Indonesia's first B2B delivery platform built specifically for technology equipment — servers, networking gear, and IT hardware. Motorcycle to 40 ft trailer with real-time competitive bids.",
+    tdBtn: 'Learn More →',
+    tdStats: [
+      { num: '9', label: 'Vehicle Types' },
+      { num: '0%', label: 'Transaction Fee' },
+      { num: '24/7', label: 'Availability' },
+      { num: '<1s', label: 'Response Time' },
+    ],
   },
 };
 
@@ -137,6 +159,46 @@ export default function ServicesPageContent() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* TCG Express Tech Delivery Banner */}
+      <section style={{ padding: m ? '40px 16px' : '60px 40px', background: 'linear-gradient(135deg, #0a1628 0%, #0e2d5e 60%, #0a1628 100%)' }}>
+        <div style={{ maxWidth: '1100px', margin: '0 auto', display: 'grid', gridTemplateColumns: m ? '1fr' : '1fr 1fr', gap: m ? '32px' : '60px', alignItems: 'center' }}>
+          <div>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(0,212,170,0.1)', border: '1px solid rgba(0,212,170,0.25)', borderRadius: '100px', padding: '6px 16px', marginBottom: '18px' }}>
+              <span style={{ width: '7px', height: '7px', background: '#00d4aa', borderRadius: '50%', animation: 'pulse 2s infinite' }}></span>
+              <span style={{ color: '#00d4aa', fontSize: '12px', fontWeight: '600', letterSpacing: '0.5px' }}>{t.tdBadge}</span>
+            </div>
+            <p style={{ color: '#00d4ff', fontSize: '13px', fontWeight: '600', letterSpacing: '3px', textTransform: 'uppercase', margin: '0 0 10px' }}>{t.tdKicker}</p>
+            <h2 style={{ fontSize: m ? '28px' : '40px', fontWeight: '800', color: 'white', margin: '0 0 16px', lineHeight: '1.15', letterSpacing: '-1px' }}>
+              {t.tdTitle}
+            </h2>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: m ? '14px' : '16px', lineHeight: '1.75', margin: '0 0 28px', maxWidth: '520px' }}>
+              {t.tdSub}
+            </p>
+            <a
+              href={withLocalePrefix('/tech-delivery', locale)}
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: '8px',
+                padding: '14px 28px', borderRadius: '10px',
+                background: 'linear-gradient(135deg, #00d4aa, #00b894)',
+                color: '#0a1628', textDecoration: 'none',
+                fontWeight: '700', fontSize: '15px',
+                boxShadow: '0 4px 20px rgba(0,212,170,0.3)',
+              }}
+            >
+              {t.tdBtn}
+            </a>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '16px' }}>
+            {t.tdStats.map((s, i) => (
+              <div key={i} style={{ padding: m ? '20px' : '28px', borderRadius: '16px', background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', textAlign: 'center' }}>
+                <div style={{ fontSize: m ? '28px' : '36px', fontWeight: '800', color: '#00d4aa', marginBottom: '6px' }}>{s.num}</div>
+                <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.45)', fontWeight: '600', letterSpacing: '0.3px' }}>{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

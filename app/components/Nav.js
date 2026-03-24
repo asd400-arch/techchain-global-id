@@ -307,8 +307,8 @@ export default function Nav() {
         <div
           aria-hidden
           style={{
-            height: 'var(--tcg-nav-height, 80px)',
-            minHeight: 'var(--tcg-nav-height, 80px)',
+            height: 'var(--tcg-nav-height, 124px)',
+            minHeight: 'var(--tcg-nav-height, 124px)',
             width: '100%',
             flexShrink: 0,
             pointerEvents: 'none',
