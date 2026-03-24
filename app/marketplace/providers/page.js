@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Nav from '../../components/Nav';
 import ProviderCard from '../../components/ProviderCard';
 import { loadMarketplaceProvidersWithSeed } from '../../../lib/marketplace/loadProvidersClient';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../lib/tcgAppUrls';
 
 export default function MarketplaceProvidersPage() {
   const [vendors, setVendors] = useState([]);
@@ -77,9 +76,7 @@ export default function MarketplaceProvidersPage() {
         )}
         <div style={{ marginTop: '32px', textAlign: 'center' }}>
           <a
-            href={TCG_APP_SIGNUP_CLIENT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             style={{
               textDecoration: 'none',
               padding: '12px 22px',

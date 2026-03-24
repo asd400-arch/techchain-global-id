@@ -7,7 +7,6 @@ import CategoryHub from '../../../components/CategoryHub';
 import ProviderCard from '../../../components/ProviderCard';
 import { getVendorCategory } from '../../../../lib/marketplace/config';
 import { loadMarketplaceProvidersWithSeed } from '../../../../lib/marketplace/loadProvidersClient';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../../lib/tcgAppUrls';
 import { marketingLocaleFromPath } from '../../../../lib/localePath';
 
 const HEADING = { id: 'Penyedia terkait', en: 'Related providers' };
@@ -93,9 +92,7 @@ export default function MarketplaceCategoryPage() {
         )}
         <div style={{ marginTop: '36px', textAlign: 'center' }}>
           <a
-            href={TCG_APP_SIGNUP_CLIENT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             style={{
               textDecoration: 'none',
               padding: '12px 22px',

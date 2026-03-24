@@ -5,7 +5,6 @@ import Nav from '../components/Nav';
 import ProviderCard from '../components/ProviderCard';
 import { VENDOR_CATEGORIES } from '../../lib/marketplace/config';
 import { loadMarketplaceProvidersWithSeed } from '../../lib/marketplace/loadProvidersClient';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../../lib/tcgAppUrls';
 import { marketingLocaleFromPath, withLocalePrefix } from '../../lib/localePath';
 
 const UI = {
@@ -122,7 +121,7 @@ export default function MarketplaceBrowsePage() {
             {t.rfq}
           </a>
           <a
-            href={TCG_APP_SIGNUP_CLIENT_URL}
+            href={withLocalePrefix('/contact', locale)}
             style={{
               textDecoration: 'none',
               padding: '12px 22px',

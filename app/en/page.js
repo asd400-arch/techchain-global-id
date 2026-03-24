@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../../lib/tcgAppUrls';
 
 export default function EnglishHomePage() {
   const videoRef = useRef(null);
@@ -237,9 +236,7 @@ export default function EnglishHomePage() {
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <a
-              href={TCG_APP_SIGNUP_CLIENT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/en/tech-delivery"
               style={{
                 padding: '12px 22px',
                 borderRadius: '10px',
@@ -250,10 +247,10 @@ export default function EnglishHomePage() {
                 fontSize: '14px',
               }}
             >
-              Book a delivery
+              🚚 Learn more
             </a>
             <a
-              href="/en/tech-delivery"
+              href="/en/contact"
               style={{
                 padding: '12px 22px',
                 borderRadius: '10px',
@@ -264,7 +261,7 @@ export default function EnglishHomePage() {
                 fontSize: '14px',
               }}
             >
-              Learn more →
+              Contact us →
             </a>
           </div>
         </div>

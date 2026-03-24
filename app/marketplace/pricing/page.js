@@ -2,7 +2,6 @@
 
 import Nav from '../../components/Nav';
 import Link from 'next/link';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../lib/tcgAppUrls';
 
 const TIERS = [
   {
@@ -61,9 +60,7 @@ export default function MarketplacePricingPage() {
         </div>
         <div style={{ textAlign: 'center', marginTop: '40px', display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center' }}>
           <a
-            href={TCG_APP_SIGNUP_CLIENT_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/contact"
             style={{
               textDecoration: 'none',
               padding: '14px 28px',

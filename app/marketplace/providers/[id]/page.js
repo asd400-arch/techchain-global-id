@@ -8,7 +8,6 @@ import ProviderCard from '../../../components/ProviderCard';
 import { getVendorCategory } from '../../../../lib/marketplace/config';
 import { SEED_MARKETPLACE_PROVIDERS } from '../../../../lib/marketplace/seedProviders';
 import { marketplaceProvidersUrl } from '../../../../lib/marketplace/api';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../../lib/tcgAppUrls';
 
 export default function MarketplaceProviderDetailPage() {
   const params = useParams();
@@ -74,9 +73,7 @@ export default function MarketplaceProviderDetailPage() {
             <ProviderCard vendor={vendor} />
             <div style={{ marginTop: '28px', textAlign: 'center' }}>
               <a
-                href={TCG_APP_SIGNUP_CLIENT_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 style={{
                   textDecoration: 'none',
                   padding: '12px 22px',

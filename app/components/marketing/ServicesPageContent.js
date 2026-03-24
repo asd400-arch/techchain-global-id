@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Nav from '../Nav';
 import useMobile from '../useMobile';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../../../lib/tcgAppUrls';
 import { marketingLocaleFromPath, withLocalePrefix } from '../../../lib/localePath';
 
 const COPY = {
@@ -43,13 +42,13 @@ const COPY = {
 const SERVICES = {
   id: [
     { icon: '🔧', title: 'Layanan Teknis', desc: 'Dukungan teknis komprehensif untuk industri berteknologi tinggi termasuk layanan di lokasi dan jarak jauh. Kami menyediakan keahlian teknik khusus di berbagai sektor.', img: '/Technical_Service_Center.webp', features: ['Operasi Pusat Data', 'Otomasi Semikonduktor', 'Produksi Teknologi', 'Perbaikan Elektronik Konsumen', 'Logistik Balik'] },
-    { icon: '🚚', title: 'Pengiriman Teknologi', desc: 'Layanan pengiriman khusus yang dirancang untuk peralatan teknologi sensitif, besar, dan bernilai tinggi dengan protokol penanganan terjamin.', img: '/Express_delivery.webp', features: ['Peralatan Besar & Berat', 'Pengiriman White Glove', 'Pengiriman Ekspres (2/4 Jam)', 'Manajemen Pengembalian'], detailPath: '/tech-delivery', link: TCG_APP_SIGNUP_CLIENT_URL },
+    { icon: '🚚', title: 'Pengiriman Teknologi', desc: 'Layanan pengiriman khusus yang dirancang untuk peralatan teknologi sensitif, besar, dan bernilai tinggi dengan protokol penanganan terjamin.', img: '/Express_delivery.webp', features: ['Peralatan Besar & Berat', 'Pengiriman White Glove', 'Pengiriman Ekspres (2/4 Jam)', 'Manajemen Pengembalian'], detailPath: '/tech-delivery' },
     { icon: '📦', title: 'Operasi Gudang', desc: 'Manajemen gudang canggih dengan area khusus untuk inventaris teknologi bernilai tinggi dan persyaratan penanganan khusus.', img: '/warehouse_operation.webp', features: ['Manajemen Suku Cadang', 'Inbound/Outbound', 'Manajemen Inventaris', 'Kegiatan Nilai Tambah', 'Penyimpanan Teknologi Bernilai Tinggi'] },
     { icon: '♻️', title: 'Manajemen Akhir Produk', desc: 'Manajemen akhir masa pakai yang bertanggung jawab dan berkelanjutan untuk semua produk teknologi, memastikan kepatuhan terhadap regulasi lingkungan.', img: '/end_of_life.webp', features: ['Pemrosesan Scrap', 'Program Daur Ulang', 'Layanan Refurbishment', 'Kepatuhan Lingkungan'] },
   ],
   en: [
     { icon: '🔧', title: 'Technical services', desc: 'Comprehensive technical support for high-tech industries, including on-site and remote assistance with specialist engineering expertise.', img: '/Technical_Service_Center.webp', features: ['Data centre operations', 'Semiconductor automation', 'Tech manufacturing', 'Consumer electronics repair', 'Reverse logistics'] },
-    { icon: '🚚', title: 'Technology delivery', desc: 'Specialised delivery for sensitive, large, and high-value technology equipment with proven handling protocols.', img: '/Express_delivery.webp', features: ['Heavy & oversized', 'White-glove delivery', 'Express (2/4 hr)', 'Returns management'], detailPath: '/tech-delivery', link: TCG_APP_SIGNUP_CLIENT_URL },
+    { icon: '🚚', title: 'Technology delivery', desc: 'Specialised delivery for sensitive, large, and high-value technology equipment with proven handling protocols.', img: '/Express_delivery.webp', features: ['Heavy & oversized', 'White-glove delivery', 'Express (2/4 hr)', 'Returns management'], detailPath: '/tech-delivery' },
     { icon: '📦', title: 'Warehouse operations', desc: 'Advanced warehouse management with dedicated zones for high-value technology inventory and special handling requirements.', img: '/warehouse_operation.webp', features: ['Spare parts', 'Inbound/outbound', 'Inventory', 'Value-added', 'High-value storage'] },
     { icon: '♻️', title: 'End-of-life management', desc: 'Responsible, sustainable end-of-life management for technology products with environmental compliance.', img: '/end_of_life.webp', features: ['Scrap processing', 'Recycling programmes', 'Refurbishment', 'Environmental compliance'] },
   ],

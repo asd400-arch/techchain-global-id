@@ -4,7 +4,6 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import InteractiveMap from '../components/InteractiveMap';
 import Nav from './components/Nav';
 import useMobile from '../components/useMobile';
-import { TCG_APP_SIGNUP_CLIENT_URL } from '../lib/tcgAppUrls';
 
 export default function Home() {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
@@ -185,26 +184,23 @@ export default function Home() {
             <h3 style={{ fontSize: m ? '24px' : '32px', fontWeight: '800', color: 'white', lineHeight: '1.2', marginBottom: '12px' }}>
               TCG Express <span style={{ color: '#00d4aa' }}>Indonesia</span> — sudah live
             </h3>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: m ? '14px' : '16px', lineHeight: '1.7', marginBottom: '8px' }}>
-              Platform B2B pengiriman peralatan teknologi untuk Indonesia. Kuota, GPS, dan pembayaran terintegrasi — lewat aplikasi zona <strong style={{ color: 'rgba(255,255,255,0.85)' }}>+62</strong>, bukan default Singapura (+65).
-            </p>
-            <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: m ? '12px' : '13px', lineHeight: '1.5', marginBottom: '24px', fontFamily: 'ui-monospace, monospace' }}>
-              app.techchainglobal.com/id/…
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: m ? '14px' : '16px', lineHeight: '1.7', marginBottom: '24px' }}>
+              Platform B2B pengiriman peralatan teknologi pertama di Indonesia. Kuota real-time, pelacakan GPS, dan pembayaran terintegrasi — motor hingga trailer 40ft.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" title="Daftar klien — app.techchainglobal.com/id/signup" style={{
+              <a href="/tech-delivery" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '13px 26px', borderRadius: '10px',
                 background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628',
                 textDecoration: 'none', fontWeight: '700', fontSize: '14px',
-              }}>Pesan pengiriman</a>
-              <a href="/tech-delivery" style={{
+              }}>🚚 Pelajari Selengkapnya</a>
+              <a href="/contact" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '8px',
                 padding: '13px 26px', borderRadius: '10px',
                 background: 'transparent', color: '#00d4aa',
                 textDecoration: 'none', fontWeight: '700', fontSize: '14px',
                 border: '1px solid rgba(0,212,170,0.3)',
-              }}>Info Pengiriman →</a>
+              }}>Hubungi Kami →</a>
             </div>
           </div>
           <div style={{

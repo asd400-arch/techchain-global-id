@@ -4,13 +4,7 @@ import { usePathname } from 'next/navigation';
 import Nav from '../components/Nav';
 import useMobile from '../components/useMobile';
 import { marketingLocaleFromPath, withLocalePrefix } from '../../lib/localePath';
-import {
-  TCG_APP_SIGNUP_CLIENT_URL,
-  TCG_APP_SIGNUP_URL,
-  TCG_APP_CLIENT_JOBS_NEW_URL,
-  TCG_APP_CORP_PREMIUM_URL,
-  TCG_EXPRESS_PWA_URL_ID,
-} from '../../lib/tcgAppUrls';
+import { TCG_EXPRESS_PWA_URL_ID } from '../../lib/tcgAppUrls';
 
 const UI = {
   id: {
@@ -18,7 +12,7 @@ const UI = {
     heroTitle1: 'Peralatan Teknologi',
     heroTitle2: 'Dikirim Cepat.',
     heroSub: 'Platform pengiriman B2B pertama di Indonesia yang dirancang khusus untuk peralatan teknologi — server, perangkat jaringan, hardware IT.',
-    bookBtn: '🚀 Pesan Pengiriman',
+    bookBtn: '🚀 Mulai Sekarang',
     contactBtn: 'Hubungi Kami →',
     statVehicles: 'Jenis Kendaraan', statFee: 'Biaya PayNow', statAvail: 'Ketersediaan', statResponse: 'Waktu Respons',
     svcKicker: 'Layanan Kami', svcTitle: 'Tiga Pilar Logistik Teknologi',
@@ -27,13 +21,13 @@ const UI = {
     howKicker: 'Cara Kerja', howTitle: 'Empat Langkah Menuju Pengiriman',
     featKicker: 'Fitur Platform', featTitle: 'Dibangun untuk Logistik Teknologi',
     ctaKicker: 'Mulai', ctaTitle: 'Siap Mengirim?', ctaSub: 'Pilih jalur Anda — kirim peralatan, antar untuk kami, atau kelola armada Anda.',
-    ctaClient: { icon: '📦', title: 'Saya Butuh Pengiriman', desc: 'Pesan pengiriman untuk peralatan teknologi Anda. Dapatkan penawaran kompetitif dari pengemudi terverifikasi.', btn: '🚀 Pesan Sekarang' },
-    ctaDriver: { icon: '🚛', title: 'Jadi Pengemudi', desc: 'Punya kendaraan? Bergabunglah dengan jaringan pengemudi kami dan hasilkan pendapatan sesuai jadwal Anda.', btn: '👤 Daftar Sekarang' },
-    ctaCorp: { icon: '🏢', title: 'Enterprise / Korporat', desc: 'Volume pengiriman besar? Dapatkan tarif khusus, prioritas dispatch, dan manajer akun dedikasi.', btn: 'Hubungi Sales' },
+    ctaClient: { icon: '📦', title: 'Saya Butuh Pengiriman', desc: 'Kirim peralatan teknologi Anda dengan aman. Hubungi kami untuk penawaran terbaik.', btn: '📧 Hubungi Kami' },
+    ctaDriver: { icon: '🚛', title: 'Jadi Pengemudi', desc: 'Punya kendaraan? Bergabunglah dengan jaringan pengemudi kami dan hasilkan pendapatan sesuai jadwal Anda.', btn: '📧 Hubungi Kami' },
+    ctaCorp: { icon: '🏢', title: 'Enterprise / Korporat', desc: 'Volume pengiriman besar? Dapatkan tarif khusus, prioritas dispatch, dan manajer akun dedikasi.', btn: '📧 Hubungi Sales' },
     mktBanner: 'Butuh gudang, vendor otomasi, atau layanan logistik?', mktBtn: '🏭 Buka Marketplace →',
     pwaKicker: 'Pasang Aplikasi', pwaTitle: 'Gunakan Seperti Aplikasi Native',
     pwaSub: 'Tidak perlu app store. Pasang langsung dari browser untuk notifikasi push dan pengalaman layar penuh.',
-    finalTitle: 'Mulai Pengiriman Hari Ini', finalSub: 'Buat akun gratis dan pesan pengiriman pertama Anda dalam hitungan menit', finalBtn: 'Luncurkan TCG Express →',
+    finalTitle: 'Mulai Pengiriman Hari Ini', finalSub: 'Hubungi tim kami untuk mendiskusikan kebutuhan pengiriman Anda', finalBtn: 'Hubungi Kami →',
     footer: '© 2026 Tech Chain Global. Seluruh hak cipta dilindungi.',
     vehicles: [
       { icon: '🏍️', name: 'Motor',        capacity: '≤ 20kg',     price: 'mulai Rp150.000' },
@@ -81,7 +75,7 @@ const UI = {
     heroTitle1: 'Technology Equipment',
     heroTitle2: 'Delivered Fast.',
     heroSub: "Indonesia's first B2B delivery platform built specifically for technology equipment — servers, networking gear, IT hardware.",
-    bookBtn: '🚀 Book a Delivery',
+    bookBtn: '🚀 Get Started',
     contactBtn: 'Contact Us →',
     statVehicles: 'Vehicle Types', statFee: 'Transaction Fee', statAvail: 'Availability', statResponse: 'Response Time',
     svcKicker: 'Our Services', svcTitle: 'Three Pillars of Tech Logistics',
@@ -90,13 +84,13 @@ const UI = {
     howKicker: 'How It Works', howTitle: 'Four Steps to Delivery',
     featKicker: 'Platform Features', featTitle: 'Built for Tech Logistics',
     ctaKicker: 'Get Started', ctaTitle: 'Ready to Ship?', ctaSub: 'Choose your path — ship equipment, deliver for us, or manage your fleet.',
-    ctaClient: { icon: '📦', title: 'I Need a Delivery', desc: 'Book a delivery for your tech equipment. Get competitive bids from verified drivers.', btn: '🚀 Book Now' },
-    ctaDriver: { icon: '🚛', title: 'Become a Driver', desc: 'Have a vehicle? Join our driver network and earn on your schedule.', btn: '👤 Sign Up Now' },
-    ctaCorp: { icon: '🏢', title: 'Enterprise / Corporate', desc: 'High-volume shipments? Get custom rates, priority dispatch, and a dedicated account manager.', btn: 'Contact Sales' },
+    ctaClient: { icon: '📦', title: 'I Need a Delivery', desc: 'Ship your tech equipment safely. Contact us for the best rates.', btn: '📧 Contact Us' },
+    ctaDriver: { icon: '🚛', title: 'Become a Driver', desc: 'Have a vehicle? Join our driver network and earn on your schedule.', btn: '📧 Contact Us' },
+    ctaCorp: { icon: '🏢', title: 'Enterprise / Corporate', desc: 'High-volume shipments? Get custom rates, priority dispatch, and a dedicated account manager.', btn: '📧 Contact Sales' },
     mktBanner: 'Need warehouse, automation vendors, or logistics services?', mktBtn: '🏭 Open Marketplace →',
     pwaKicker: 'Install App', pwaTitle: 'Use It Like a Native App',
     pwaSub: 'No app store needed. Install directly from your browser for push notifications and full-screen experience.',
-    finalTitle: 'Start Shipping Today', finalSub: 'Create a free account and book your first delivery in minutes', finalBtn: 'Launch TCG Express →',
+    finalTitle: 'Start Shipping Today', finalSub: 'Contact our team to discuss your delivery needs', finalBtn: 'Contact Us →',
     footer: '© 2026 Tech Chain Global. All rights reserved.',
     vehicles: [
       { icon: '🏍️', name: 'Motorcycle',    capacity: '≤ 20 kg',     price: 'from Rp150,000' },
@@ -187,7 +181,7 @@ export default function TechDelivery() {
             {t.heroSub}
           </p>
           <div className="animate-fadeInUp delay-3" style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginTop: '35px', flexWrap: 'wrap' }}>
-            <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" style={{
+            <a href={withLocalePrefix('/contact', locale)} style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               padding: '16px 32px', borderRadius: '12px',
               background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628',
@@ -304,15 +298,15 @@ export default function TechDelivery() {
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: m ? '15px' : '18px', maxWidth: '500px', margin: '0 auto 50px' }}>{t.ctaSub}</p>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: '24px', alignItems: 'stretch' }}>
             {[
-              { ...t.ctaClient, btnBg: 'linear-gradient(135deg, #00d4aa, #00b894)', btnColor: '#0a1628', link: TCG_APP_SIGNUP_CLIENT_URL },
-              { ...t.ctaDriver, btnBg: 'linear-gradient(135deg, #ff6b35, #e85d2c)', btnColor: 'white', link: TCG_APP_SIGNUP_URL },
-              { ...t.ctaCorp, btnBg: 'transparent', btnColor: 'white', link: TCG_APP_CORP_PREMIUM_URL, border: true },
+              { ...t.ctaClient, btnBg: 'linear-gradient(135deg, #00d4aa, #00b894)', btnColor: '#0a1628', link: withLocalePrefix('/contact', locale) },
+              { ...t.ctaDriver, btnBg: 'linear-gradient(135deg, #ff6b35, #e85d2c)', btnColor: 'white', link: withLocalePrefix('/contact', locale) },
+              { ...t.ctaCorp, btnBg: 'transparent', btnColor: 'white', link: withLocalePrefix('/contact', locale), border: true },
             ].map((cta, i) => (
               <div key={i} style={{ padding: m ? '28px' : '36px', borderRadius: '18px', textAlign: 'center', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ fontSize: '40px', marginBottom: '16px' }}>{cta.icon}</div>
                 <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'white', marginBottom: '8px' }}>{cta.title}</h3>
                 <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.6', marginBottom: '24px' }}>{cta.desc}</p>
-                <a href={cta.link} target="_blank" rel="noopener noreferrer" style={{
+                <a href={cta.link} style={{
                   display: 'inline-block', padding: '14px 28px', borderRadius: '10px',
                   background: cta.btnBg, color: cta.btnColor,
                   textDecoration: 'none', fontWeight: '700', fontSize: '15px',
@@ -382,7 +376,7 @@ export default function TechDelivery() {
       <section style={{ padding: pad, background: 'linear-gradient(135deg, #0f2b5b, #1a56db)', textAlign: 'center' }}>
         <h2 style={{ fontSize: m ? '28px' : '38px', fontWeight: '800', color: 'white', marginBottom: '15px' }}>{t.finalTitle}</h2>
         <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: m ? '15px' : '18px', marginBottom: '35px' }}>{t.finalSub}</p>
-        <a href={TCG_APP_CLIENT_JOBS_NEW_URL} target="_blank" rel="noopener noreferrer" style={{
+        <a href={withLocalePrefix('/contact', locale)} style={{
           display: 'inline-block', padding: '16px 40px', borderRadius: '10px',
           background: 'white', color: '#0f2b5b', textDecoration: 'none',
           fontWeight: '700', fontSize: '17px',

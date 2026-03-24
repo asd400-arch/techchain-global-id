@@ -2,7 +2,6 @@
 import { useState, useEffect } from 'react';
 import ProviderCard from '../../components/ProviderCard';
 import { loadMarketplaceProvidersWithSeed } from '../../../lib/marketplace/loadProvidersClient';
-import { TCG_APP_SIGNUP_CLIENT_URL, TCG_APP_SIGNUP_DRIVER_URL } from '../../../lib/tcgAppUrls';
 
 export default function BatamPage() {
   const [vendors, setVendors] = useState([]);
@@ -70,7 +69,7 @@ export default function BatamPage() {
           }}>
             Cari Gudang di Batam →
           </a>
-          <a href={TCG_APP_SIGNUP_CLIENT_URL} target="_blank" rel="noopener noreferrer" style={{
+          <a href="/contact" style={{
             textDecoration: 'none', padding: '14px 28px', borderRadius: '10px',
             background: 'transparent', border: '1px solid rgba(62,207,142,0.4)',
             color: '#3ecf8e', fontWeight: '600', fontSize: '15px',
@@ -157,7 +156,7 @@ export default function BatamPage() {
           <p style={{ color: '#7a8099', fontSize: '15px', lineHeight: '1.7', margin: '0 auto 28px', maxWidth: '460px' }}>
             Bonus Selamat Datang <strong style={{ color: '#e8b84b' }}>Rp500.000</strong> setelah 5 pengiriman
           </p>
-          <a href={TCG_APP_SIGNUP_DRIVER_URL} style={{
+          <a href="/contact" style={{
             display: 'inline-block', textDecoration: 'none', padding: '14px 32px', borderRadius: '10px',
             background: 'linear-gradient(135deg, #e8b84b, #c49a2e)',
             color: '#0d0f14', fontWeight: '700', fontSize: '15px',
