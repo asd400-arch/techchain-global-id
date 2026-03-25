@@ -1,14 +1,3 @@
-const nextConfig = {
-  output: 'standalone',
-  experimental: {
-    turbo: {}
-  },
-  typescript: {
-    ignoreBuildErrors: true
-  },
-  eslint: {
-    ignoreDuringBuilds: true
-  }
-};
+const nextConfig = {};
 
 export default nextConfig;
