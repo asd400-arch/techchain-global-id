@@ -21,8 +21,8 @@ const UI = {
     howKicker: 'Cara Kerja', howTitle: 'Empat Langkah Menuju Pengiriman',
     featKicker: 'Fitur Platform', featTitle: 'Dibangun untuk Logistik Teknologi',
     ctaKicker: 'Mulai', ctaTitle: 'Siap Mengirim?', ctaSub: 'Pilih jalur Anda — kirim peralatan, antar untuk kami, atau kelola armada Anda.',
-    ctaClient: { icon: '📦', title: 'Saya Butuh Pengiriman', desc: 'Kirim peralatan teknologi Anda dengan aman. Hubungi kami untuk penawaran terbaik.', btn: '📧 Hubungi Kami' },
-    ctaDriver: { icon: '🚛', title: 'Jadi Pengemudi', desc: 'Punya kendaraan? Bergabunglah dengan jaringan pengemudi kami dan hasilkan pendapatan sesuai jadwal Anda.', btn: '📧 Hubungi Kami' },
+    ctaClient: { icon: '📦', title: 'Saya Butuh Pengiriman', desc: 'Kirim peralatan teknologi Anda dengan aman. Daftar sekarang dan dapatkan penawaran terbaik.', btn: 'Daftar sebagai Klien' },
+    ctaDriver: { icon: '🚛', title: 'Jadi Pengemudi', desc: 'Punya kendaraan? Bergabunglah dengan jaringan pengemudi kami dan hasilkan pendapatan sesuai jadwal Anda.', btn: 'Daftar sebagai Pengemudi' },
     ctaCorp: { icon: '🏢', title: 'Enterprise / Korporat', desc: 'Volume pengiriman besar? Dapatkan tarif khusus, prioritas dispatch, dan manajer akun dedikasi.', btn: '📧 Hubungi Sales' },
     mktBanner: 'Butuh gudang, vendor otomasi, atau layanan logistik?', mktBtn: '🏭 Buka Marketplace →',
     pwaKicker: 'Pasang Aplikasi', pwaTitle: 'Gunakan Seperti Aplikasi Native',
@@ -86,8 +86,8 @@ const UI = {
     howKicker: 'How It Works', howTitle: 'Four Steps to Delivery',
     featKicker: 'Platform Features', featTitle: 'Built for Tech Logistics',
     ctaKicker: 'Get Started', ctaTitle: 'Ready to Ship?', ctaSub: 'Choose your path — ship equipment, deliver for us, or manage your fleet.',
-    ctaClient: { icon: '📦', title: 'I Need a Delivery', desc: 'Ship your tech equipment safely. Contact us for the best rates.', btn: '📧 Contact Us' },
-    ctaDriver: { icon: '🚛', title: 'Become a Driver', desc: 'Have a vehicle? Join our driver network and earn on your schedule.', btn: '📧 Contact Us' },
+    ctaClient: { icon: '📦', title: 'I Need a Delivery', desc: 'Ship your tech equipment safely. Sign up now for the best rates.', btn: 'Register as Client' },
+    ctaDriver: { icon: '🚛', title: 'Become a Driver', desc: 'Have a vehicle? Join our driver network and earn on your schedule.', btn: 'Register as Driver' },
     ctaCorp: { icon: '🏢', title: 'Enterprise / Corporate', desc: 'High-volume shipments? Get custom rates, priority dispatch, and a dedicated account manager.', btn: '📧 Contact Sales' },
     mktBanner: 'Need warehouse, automation vendors, or logistics services?', mktBtn: '🏭 Open Marketplace →',
     pwaKicker: 'Install App', pwaTitle: 'Use It Like a Native App',
@@ -302,15 +302,15 @@ export default function TechDelivery() {
           <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: m ? '15px' : '18px', maxWidth: '500px', margin: '0 auto 50px' }}>{t.ctaSub}</p>
           <div style={{ display: 'grid', gridTemplateColumns: m ? '1fr' : 'repeat(3, 1fr)', gap: '24px', alignItems: 'stretch' }}>
             {[
-              { ...t.ctaClient, btnBg: 'linear-gradient(135deg, #00d4aa, #00b894)', btnColor: '#0a1628', link: withLocalePrefix('/contact', locale) },
-              { ...t.ctaDriver, btnBg: 'linear-gradient(135deg, #ff6b35, #e85d2c)', btnColor: 'white', link: withLocalePrefix('/contact', locale) },
+              { ...t.ctaClient, btnBg: 'linear-gradient(135deg, #00d4aa, #00b894)', btnColor: '#0a1628', link: 'https://app.techchainglobal.id/signup?role=client', external: true },
+              { ...t.ctaDriver, btnBg: 'linear-gradient(135deg, #ff6b35, #e85d2c)', btnColor: 'white', link: 'https://app.techchainglobal.id/signup?role=driver', external: true },
               { ...t.ctaCorp, btnBg: 'transparent', btnColor: 'white', link: withLocalePrefix('/contact', locale), border: true },
             ].map((cta, i) => (
               <div key={i} style={{ padding: m ? '28px' : '36px', borderRadius: '18px', textAlign: 'center', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ fontSize: '40px', marginBottom: '16px' }}>{cta.icon}</div>
                 <h3 style={{ fontSize: '18px', fontWeight: '700', color: 'white', marginBottom: '8px' }}>{cta.title}</h3>
                 <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.45)', lineHeight: '1.6', marginBottom: '24px' }}>{cta.desc}</p>
-                <a href={cta.link} style={{
+                <a href={cta.link} target={cta.external ? '_blank' : '_self'} rel={cta.external ? 'noopener noreferrer' : undefined} style={{
                   display: 'inline-block', padding: '14px 28px', borderRadius: '10px',
                   background: cta.btnBg, color: cta.btnColor,
                   textDecoration: 'none', fontWeight: '700', fontSize: '15px',
