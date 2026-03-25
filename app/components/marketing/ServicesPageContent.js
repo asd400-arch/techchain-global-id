@@ -136,26 +136,31 @@ export default function ServicesPageContent() {
                   ))}
                 </div>
                 {(service.detailPath || service.link) && (
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginTop: '20px' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center', marginTop: '28px' }}>
                     {service.detailPath && (
                       <a
                         href={withLocalePrefix(service.detailPath, locale)}
                         style={{
-                          display: 'inline-block',
-                          padding: '12px 24px',
-                          borderRadius: '10px',
-                          border: '1px solid rgba(0,212,255,0.35)',
-                          color: '#00d4ff',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '10px',
+                          padding: '14px 28px',
+                          borderRadius: '12px',
+                          background: 'linear-gradient(135deg, #00d4aa, #00b894)',
+                          color: '#0a1628',
                           textDecoration: 'none',
-                          fontWeight: '700',
-                          fontSize: '14px',
+                          fontWeight: '800',
+                          fontSize: '15px',
+                          boxShadow: '0 4px 20px rgba(0,212,170,0.35)',
+                          letterSpacing: '-0.2px',
                         }}
                       >
-                        {t.detailDelivery} →
+                        {t.detailDelivery}
+                        <span style={{ fontSize: '18px', fontWeight: '900', lineHeight: 1 }}>→</span>
                       </a>
                     )}
                     {service.link && (
-                      <a href={service.link} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', padding: '12px 24px', borderRadius: '10px', background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628', textDecoration: 'none', fontWeight: '700', fontSize: '14px' }}>{t.ctaLink}</a>
+                      <a href={service.link} target="_blank" rel="noopener noreferrer" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '14px 28px', borderRadius: '12px', background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628', textDecoration: 'none', fontWeight: '800', fontSize: '15px', boxShadow: '0 4px 20px rgba(0,212,170,0.3)' }}>{t.ctaLink}</a>
                     )}
                   </div>
                 )}
