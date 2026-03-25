@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import Nav from '../Nav';
 import useMobile from '../useMobile';
 import { marketingLocaleFromPath, withLocalePrefix } from '../../../lib/localePath';
 
@@ -32,6 +31,9 @@ const COPY = {
       { num: '24/7', label: 'Ketersediaan' },
       { num: '<1s', label: 'Waktu Respons' },
     ],
+    regClientBtn: 'Daftar sebagai Klien',
+    regDriverBtn: 'Daftar sebagai Pengemudi',
+    regTitle: 'Mulai Sekarang',
   },
   en: {
     heroKicker: 'Service offerings',
@@ -58,6 +60,9 @@ const COPY = {
       { num: '24/7', label: 'Availability' },
       { num: '<1s', label: 'Response Time' },
     ],
+    regClientBtn: 'Register as Client',
+    regDriverBtn: 'Register as Driver',
+    regTitle: 'Get Started',
   },
 };
 
@@ -102,8 +107,6 @@ export default function ServicesPageContent() {
 
   return (
     <div>
-      <Nav />
-
       <section style={{ position: 'relative', minHeight: m ? '45vh' : '55vh', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'url(/Technical_Service__support.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, rgba(10,22,40,0.93), rgba(15,43,91,0.88))' }}></div>
@@ -159,6 +162,36 @@ export default function ServicesPageContent() {
               </div>
             </div>
           ))}
+
+          {/* Registration CTA buttons */}
+          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '12px', paddingTop: '40px', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+            <a
+              href="https://app.techchainglobal.id/signup?role=client"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block', padding: '14px 32px', borderRadius: '10px',
+                background: 'linear-gradient(135deg, #00d4aa, #00b894)',
+                color: '#0a1628', textDecoration: 'none', fontWeight: '700', fontSize: '15px',
+                boxShadow: '0 4px 16px rgba(0,212,170,0.25)',
+              }}
+            >
+              {t.regClientBtn}
+            </a>
+            <a
+              href="https://app.techchainglobal.id/signup?role=driver"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'inline-block', padding: '14px 32px', borderRadius: '10px',
+                background: 'linear-gradient(135deg, #ff6b35, #e85d2c)',
+                color: 'white', textDecoration: 'none', fontWeight: '700', fontSize: '15px',
+                boxShadow: '0 4px 16px rgba(255,107,53,0.25)',
+              }}
+            >
+              {t.regDriverBtn}
+            </a>
+          </div>
         </div>
       </section>
 

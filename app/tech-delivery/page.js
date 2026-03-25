@@ -28,6 +28,8 @@ const UI = {
     pwaKicker: 'Pasang Aplikasi', pwaTitle: 'Gunakan Seperti Aplikasi Native',
     pwaSub: 'Tidak perlu app store. Pasang langsung dari browser untuk notifikasi push dan pengalaman layar penuh.',
     finalTitle: 'Mulai Pengiriman Hari Ini', finalSub: 'Hubungi tim kami untuk mendiskusikan kebutuhan pengiriman Anda', finalBtn: 'Hubungi Kami →',
+    regClientBtn: 'Daftar sebagai Klien',
+    regDriverBtn: 'Daftar sebagai Pengemudi',
     footer: '© 2026 Tech Chain Global. Seluruh hak cipta dilindungi.',
     vehicles: [
       { icon: '🏍️', name: 'Motor',        capacity: '≤ 20kg',     price: 'mulai Rp150.000' },
@@ -91,6 +93,8 @@ const UI = {
     pwaKicker: 'Install App', pwaTitle: 'Use It Like a Native App',
     pwaSub: 'No app store needed. Install directly from your browser for push notifications and full-screen experience.',
     finalTitle: 'Start Shipping Today', finalSub: 'Contact our team to discuss your delivery needs', finalBtn: 'Contact Us →',
+    regClientBtn: 'Register as Client',
+    regDriverBtn: 'Register as Driver',
     footer: '© 2026 Tech Chain Global. All rights reserved.',
     vehicles: [
       { icon: '🏍️', name: 'Motorcycle',    capacity: '≤ 20 kg',     price: 'from Rp150,000' },
@@ -381,6 +385,34 @@ export default function TechDelivery() {
           background: 'white', color: '#0f2b5b', textDecoration: 'none',
           fontWeight: '700', fontSize: '17px',
         }}>{t.finalBtn}</a>
+        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', marginTop: '24px' }}>
+          <a
+            href="https://app.techchainglobal.id/signup?role=client"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block', padding: '14px 32px', borderRadius: '10px',
+              background: 'linear-gradient(135deg, #00d4aa, #00b894)',
+              color: '#0a1628', textDecoration: 'none', fontWeight: '700', fontSize: '15px',
+              boxShadow: '0 4px 16px rgba(0,212,170,0.3)',
+            }}
+          >
+            {t.regClientBtn}
+          </a>
+          <a
+            href="https://app.techchainglobal.id/signup?role=driver"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block', padding: '14px 32px', borderRadius: '10px',
+              background: 'linear-gradient(135deg, #ff6b35, #e85d2c)',
+              color: 'white', textDecoration: 'none', fontWeight: '700', fontSize: '15px',
+              boxShadow: '0 4px 16px rgba(255,107,53,0.3)',
+            }}
+          >
+            {t.regDriverBtn}
+          </a>
+        </div>
       </section>
 
       <footer style={{ background: '#060e1a', borderTop: '1px solid rgba(255,255,255,0.05)', padding: '30px 20px', textAlign: 'center' }}>
