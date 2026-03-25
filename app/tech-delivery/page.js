@@ -185,20 +185,13 @@ export default function TechDelivery() {
             {t.heroSub}
           </p>
           <div className="animate-fadeInUp delay-3" style={{ display: 'flex', gap: '16px', justifyContent: 'center', marginTop: '35px', flexWrap: 'wrap' }}>
-            <a href={withLocalePrefix('/contact', locale)} style={{
+            <a href="https://app.techchainglobal.id/signup?role=client" target="_blank" rel="noopener noreferrer" style={{
               display: 'inline-flex', alignItems: 'center', gap: '8px',
               padding: '16px 32px', borderRadius: '12px',
               background: 'linear-gradient(135deg, #00d4aa, #00b894)', color: '#0a1628',
               textDecoration: 'none', fontWeight: '700', fontSize: '16px',
               boxShadow: '0 4px 20px rgba(0,212,170,0.35)',
             }}>{t.bookBtn}</a>
-            <a href={withLocalePrefix('/contact', locale)} style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '16px 32px', borderRadius: '12px',
-              background: 'transparent', color: 'white',
-              textDecoration: 'none', fontWeight: '700', fontSize: '16px',
-              border: '2px solid rgba(255,255,255,0.2)',
-            }}>{t.contactBtn}</a>
           </div>
         </div>
       </section>
