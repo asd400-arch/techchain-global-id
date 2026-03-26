@@ -1,1 +1,2 @@
-export { default } from '../../../marketplace/providers/page';
+import ProvidersPage from '../../../marketplace/providers/page';
+export default ProvidersPage;

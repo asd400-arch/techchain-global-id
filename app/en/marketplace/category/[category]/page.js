@@ -1,1 +1,2 @@
-export { default } from '../../../marketplace/category/[category]/page';
+import CategoryPage from '../../../marketplace/category/[category]/page';
+export default CategoryPage;

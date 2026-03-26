@@ -1,1 +1,2 @@
-export { default } from '../../../marketplace/jakarta/page';
+import JakartaPage from '../../../marketplace/jakarta/page';
+export default JakartaPage;

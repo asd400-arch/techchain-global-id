@@ -1,1 +1,2 @@
-export { default } from '../../../marketplace/batam/page';
+import BatamPage from '../../../marketplace/batam/page';
+export default BatamPage;

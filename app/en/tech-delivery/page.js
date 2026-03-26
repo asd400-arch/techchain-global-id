@@ -1,1 +1,2 @@
-export { default } from '../../tech-delivery/page';
+import TechDeliveryPage from '../../tech-delivery/page';
+export default TechDeliveryPage;

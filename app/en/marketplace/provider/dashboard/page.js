@@ -1,1 +1,2 @@
-export { default } from '../../../../marketplace/provider/dashboard/page';
+import DashboardPage from '../../../../marketplace/provider/dashboard/page';
+export default DashboardPage;
