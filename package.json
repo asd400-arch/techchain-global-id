@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "engines": {
+    "node": ">=18.18.0 <25.0.0"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.95.3",
     "next": "16.1.6",
@@ -15,9 +18,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "16.1.6",
-    "tailwindcss": "^4"
+    "eslint-config-next": "16.1.6"
   }
 }
